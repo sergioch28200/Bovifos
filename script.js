@@ -1,5 +1,5 @@
 // Número de WhatsApp de ventas (código de país + número, sin "+" ni espacios)
-const WHATSAPP_NUMBER = "573000000000";
+const WHATSAPP_NUMBER = "573203060322";
 
 function whatsappUrl(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
