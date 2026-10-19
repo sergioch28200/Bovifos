@@ -343,6 +343,16 @@ button:focus-visible {
 }
 
 /* Productos */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.products .product {
+  flex: 1 1 200px;
+  max-width: 260px;
+}
 .product {
   display: flex;
   flex-direction: column;
@@ -367,6 +377,19 @@ button:focus-visible {
 .product__media--gold .bag { --bag: #b9802a; }
 .product__media--red { background: #f6e8e4; }
 .product__media--red .bag { --bag: #9b3d2e; }
+.product__media--teal { background: #e2f1ef; }
+.product__media--teal .bag { --bag: #2a7a72; }
+.bag--sm .bag__pct--word { font-size: 0.8rem; }
+
+.product__stage {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  margin-bottom: 6px;
+}
 
 .product__body {
   display: flex;
@@ -606,6 +629,7 @@ button:focus-visible {
     padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
   .grid--4 { grid-template-columns: 1fr; }
+  .products .product { max-width: none; }
   .form { padding: 22px; }
   .form__row { grid-template-columns: 1fr; }
   .hero__actions .btn { width: 100%; }
