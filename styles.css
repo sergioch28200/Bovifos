@@ -88,8 +88,14 @@ img { display: block; max-width: 100%; height: auto; }
   border-bottom: 1px solid var(--linea);
 }
 .header__inner { display: flex; align-items: center; gap: 24px; height: var(--header-h); }
-.brand { font-size: 1.75rem; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: var(--verde); text-decoration: none; }
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 1.75rem; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: var(--verde); text-decoration: none;
+}
+.brand__logo { flex: none; width: 44px; height: 44px; }
 .brand--light { color: #fff; font-size: 1.375rem; }
+/* el emblema es verde: en el pie oscuro va sobre un disco blanco para que se lea */
+.brand__logo--footer { width: 56px; height: 56px; padding: 3px; border-radius: 50%; background: #fff; }
 .menu { display: flex; gap: 28px; margin-left: auto; }
 .menu a { font-weight: 600; text-decoration: none; }
 .menu a:hover { color: var(--verde); text-decoration: underline; text-underline-offset: 6px; }
@@ -379,6 +385,8 @@ img { display: block; max-width: 100%; height: auto; }
 /* Teléfonos estrechos (320–380 px): el botón de WhatsApp del encabezado queda solo con el icono */
 @media (max-width: 380px) {
   .header__inner { gap: 12px; }
+  .header .brand { gap: 8px; }
+  .header .brand__logo { width: 38px; height: 38px; }
   .header__actions .btn--sm { width: 44px; padding: 0; }
   .header__wa-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }

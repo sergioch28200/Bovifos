@@ -14,7 +14,15 @@ Coloca aquí el archivo **original** del logotipo (el que usa la marca en sus em
 - Si solo existe en PDF, AI o EPS, ponlo aquí tal cual: se puede exportar a SVG.
 - Fondo transparente, sin bordes ni márgenes grandes alrededor.
 
-## Dónde se usará
+## Estado actual (20 de octubre de 2026)
+
+- `bovifos-logo.png` (1080 × 1350, fondo transparente) es el que usa la web: `web/` tiene copias recortadas
+  de 32, 96, 180, 192 y 512 px, generadas con `herramientas/imagenes/logo-web.ps1`.
+- `bovifos-logo.svg` **no es vectorial**: contiene la misma imagen PNG incrustada. Si existe el archivo
+  original en AI, PDF, EPS o CorelDRAW, conviene ponerlo aquí.
+- El logo dice “COMPAÑIA ZOOTECNICA”, sin tildes: ver `../productos/CORRECCIONES.md`.
+
+## Dónde se usa
 
 - Encabezado y pie de página de la landing.
 - Ícono de la pestaña del navegador (favicon) y la imagen que aparece al compartir el enlace.
