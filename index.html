@@ -587,84 +587,74 @@
           <div>
             <p class="dron__tag">Servicio para tu finca</p>
             <h2 id="dron-titulo">Análisis bromatológico del pasto con dron</h2>
-            <p class="dron__lead">Analizamos la calidad nutricional del pasto de tu finca con tecnología de dron. Con esos resultados te entregamos un reporte y, si quieres, ajustamos la fórmula de tu sal a las condiciones de tus potreros.</p>
+            <p class="dron__lead">Analizamos la composición mineral del pasto de tu finca a partir de imágenes tomadas con dron. Con esos resultados te entregamos un reporte y, si quieres, ajustamos la fórmula de tu sal a las condiciones de tus potreros.</p>
           </div>
           <ul class="dron__beneficios">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>Análisis espacial de una superficie amplia de la finca</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>Identificación de variaciones entre potreros</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-6 6 2 9-4s6 2 9-4"/><path d="M3 21h18"/></svg>Identificación de variaciones dentro de la pradera y entre zonas de la finca</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12l1 3-1 13H6L5 7l1-3Z"/><path d="M5 7h14"/><path d="M12 10v6M9 13h6"/></svg>Información para orientar las decisiones de suplementación mineral</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><span>Tecnología de análisis con una <strong>precisión superior al 96&nbsp;%</strong><a class="dron__ref" href="#dron-fuente" aria-label="Ver fuente">*</a></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg><span>Método de análisis de imágenes RGB evaluado frente a análisis de laboratorio en un estudio colombiano<a class="dron__ref" href="#dron-fuentes" aria-label="Ver referencia 1">¹</a></span></li>
           </ul>
         </div>
 
         <!--
-          Mapa interactivo de análisis de pastos (mapa-pastos.js).
-          Los potreros, valores y capas son de una finca de ejemplo y se editan
-          en el bloque de configuración al inicio de mapa-pastos.js.
+          Mapa de calor de macrominerales (mapa-pastos.js).
+          DATOS SIMULADOS: la superficie de valores se genera en el navegador para la demostración.
+          Los rangos de referencia y las fuentes están en el bloque MINERALES de mapa-pastos.js.
         -->
         <div class="mapa" id="mapa-pastos">
           <div class="mapa__toolbar">
             <div>
-              <p class="mapa__chip">Finca de ejemplo · datos ilustrativos</p>
-              <h3 class="mapa__titulo">Explora el mapa de composición del pasto</h3>
+              <p class="mapa__aviso"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg>Visualización ilustrativa con datos simulados</p>
+              <h3 class="mapa__titulo">Mapa de macrominerales en la pradera</h3>
             </div>
-            <div class="mapa__capas" role="group" aria-label="Parámetro que muestra el mapa">
-              <button type="button" data-capa="pc" aria-pressed="true">Proteína cruda</button>
-              <button type="button" data-capa="fdn" aria-pressed="false">Fibra (FDN)</button>
-              <button type="button" data-capa="p" aria-pressed="false">Fósforo</button>
-              <button type="button" data-capa="ca" aria-pressed="false">Calcio</button>
+            <div class="mapa__selector" role="group" aria-label="Mineral que muestra el mapa">
+              <button type="button" data-mineral="ca" aria-pressed="true"><b>Ca</b>Calcio</button>
+              <button type="button" data-mineral="p" aria-pressed="false"><b>P</b>Fósforo</button>
+              <button type="button" data-mineral="k" aria-pressed="false"><b>K</b>Potasio</button>
+              <button type="button" data-mineral="mg" aria-pressed="false"><b>Mg</b>Magnesio</button>
+              <button type="button" data-mineral="s" aria-pressed="false"><b>S</b>Azufre</button>
             </div>
           </div>
 
           <div class="mapa__grid">
             <figure class="mapa__vista">
-              <svg class="mapa__svg" viewBox="0 0 800 540" role="group" aria-labelledby="mapa-svg-titulo">
-                <title id="mapa-svg-titulo">Vista aérea ilustrativa de una finca con seis potreros</title>
-                <defs>
-                  <pattern id="mapa-textura" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-                    <path d="M0 5h10" stroke="#ffffff" stroke-opacity="0.035" stroke-width="2"/>
-                  </pattern>
-                </defs>
-                <rect class="mapa__suelo" width="800" height="540"/>
-                <rect width="800" height="540" fill="url(#mapa-textura)"/>
-                <path class="mapa__bosque" d="M0 0h30c-8 70 10 150-2 240-8 90 14 170 0 300H0Z"/>
-                <path class="mapa__bosque" d="M0 540v-44c150-16 260 12 400-4s280-20 400 0v48Z"/>
-                <g class="mapa__arboles" aria-hidden="true">
-                  <circle cx="14" cy="40" r="11"/><circle cx="20" cy="110" r="12"/><circle cx="10" cy="178" r="10"/><circle cx="18" cy="320" r="12"/>
-                  <circle cx="12" cy="396" r="11"/><circle cx="20" cy="452" r="10"/><circle cx="70" cy="526" r="11"/><circle cx="168" cy="522" r="12"/>
-                  <circle cx="262" cy="530" r="10"/><circle cx="356" cy="524" r="12"/><circle cx="452" cy="528" r="11"/><circle cx="560" cy="522" r="12"/>
-                  <circle cx="650" cy="530" r="10"/><circle cx="742" cy="524" r="12"/><circle cx="772" cy="300" r="11"/><circle cx="780" cy="390" r="10"/>
-                </g>
-                <path class="mapa__quebrada" d="M0 514c140-12 240 12 380-2s260-16 420 4"/>
-                <path class="mapa__quebrada mapa__quebrada--brillo" d="M0 514c140-12 240 12 380-2s260-16 420 4"/>
-                <path class="mapa__camino" d="M0 251c180-5 420 5 800-2"/>
-                <path class="mapa__camino mapa__camino--linea" d="M0 251c180-5 420 5 800-2"/>
-                <g class="mapa__potreros"></g>
-                <text class="mapa__rotulo" x="760" y="244" text-anchor="end">CAMINO</text>
-                <text class="mapa__rotulo" x="780" y="536" text-anchor="end">QUEBRADA</text>
-                <g class="mapa__norte" transform="translate(774 40)" aria-hidden="true">
-                  <circle r="16"/><path d="M0-11l5 13H-5Z"/><text y="-19" text-anchor="middle">N</text>
-                </g>
-              </svg>
+              <div class="mapa__lienzo">
+                <img class="mapa__foto"
+                  src="https://images.unsplash.com/photo-1572171944915-d65c2787f2da?auto=format&fit=crop&w=1280&h=800&q=70"
+                  srcset="https://images.unsplash.com/photo-1572171944915-d65c2787f2da?auto=format&fit=crop&w=800&h=500&q=70 800w,
+                          https://images.unsplash.com/photo-1572171944915-d65c2787f2da?auto=format&fit=crop&w=1280&h=800&q=70 1280w"
+                  sizes="(min-width: 960px) 60vw, 100vw" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Vista aérea de una pradera con árboles y ganado, usada como fondo de la simulación">
+                <canvas class="mapa__calor" width="160" height="100" aria-hidden="true"></canvas>
+                <canvas class="mapa__calor" width="160" height="100" aria-hidden="true"></canvas>
+                <svg class="mapa__capa" viewBox="0 0 160 100" aria-hidden="true">
+                  <path class="mapa__fuera" fill-rule="evenodd" d=""/>
+                  <g class="mapa__reticula"></g>
+                  <g class="mapa__isolineas"></g>
+                  <path class="mapa__area" d=""/>
+                  <g class="mapa__mira" hidden><line class="mira__h" x1="0" x2="160"/><line class="mira__v" y1="0" y2="100"/><circle r="1.4"/></g>
+                </svg>
+                <div class="mapa__lectura" hidden></div>
+                <span class="mapa__norte" aria-hidden="true">N</span>
+                <span class="mapa__credito">Foto: <a href="https://unsplash.com/es/fotos/fotografia-aerea-de-animales-en-pastos-verdes-ip3NEMrAJx8" target="_blank" rel="noopener">Unsplash</a></span>
+              </div>
               <figcaption class="mapa__leyenda">
-                <span class="leyenda__titulo" id="mapa-leyenda-titulo">Proteína cruda (%)</span>
-                <span class="leyenda__escala">
-                  <span class="leyenda__min">6</span>
-                  <span class="leyenda__barra" aria-hidden="true"></span>
-                  <span class="leyenda__max">15</span>
-                </span>
+                <p class="leyenda__titulo"><span class="leyenda__mineral">Calcio (Ca)</span> · % de la materia seca</p>
+                <div class="leyenda__escala">
+                  <div class="leyenda__ref" aria-hidden="true"><span>Referencia</span></div>
+                  <div class="leyenda__barra" aria-hidden="true"></div>
+                  <div class="leyenda__marcas" aria-hidden="true"></div>
+                </div>
+                <ul class="leyenda__claves"></ul>
+                <p class="leyenda__criterio">Colores según la referencia general de requerimiento para bovinos en pastoreo (NRC, 2001)<a class="dron__ref" href="#dron-fuentes" aria-label="Ver referencia 1">¹</a>. Es orientativa: depende del tipo de ganado, la etapa productiva y la dieta total.</p>
               </figcaption>
-              <p class="mapa__ayuda">Pasa el cursor o toca un potrero para ver su detalle.</p>
             </figure>
 
             <div class="mapa__panel">
-              <p class="mapa__nojs">Activa JavaScript para explorar los potreros del mapa.</p>
+              <p class="mapa__nojs">Activa JavaScript para ver la simulación del mapa de minerales.</p>
             </div>
-
-            <div class="mapa__comparar"></div>
           </div>
-          <p class="sr-only" id="mapa-estado" role="status"></p>
-          <p class="mapa__nota">Mapa y valores ilustrativos de una finca de ejemplo: no corresponden a una finca real. Los parámetros de tu reporte dependen del análisis de tu finca.</p>
         </div>
 
         <ol class="dron__proceso" aria-label="Cómo funciona el análisis">
@@ -672,19 +662,19 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/></svg>
             <span class="paso__num">Paso 1</span>
             <h3>Captura con dron</h3>
-            <p>El dron sobrevuela tus potreros y toma imágenes de toda la finca.</p>
+            <p>El dron sobrevuela tus potreros y toma imágenes RGB de la pradera.</p>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg>
             <span class="paso__num">Paso 2</span>
             <h3>Procesamiento del software</h3>
-            <p>El software estima la composición del pasto en cada sector.</p>
+            <p>El software analiza las imágenes y estima la composición mineral del pasto.</p>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>
             <span class="paso__num">Paso 3</span>
             <h3>Mapa de composición del pasto</h3>
-            <p>Te entregamos el reporte con el mapa y los valores de cada potrero.</p>
+            <p>Te entregamos el reporte con el mapa de cada mineral en la finca.</p>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12l1 3-1 13H6L5 7l1-3Z"/><path d="M5 7h14"/><path d="M12 10v6M9 13h6"/></svg>
@@ -700,7 +690,15 @@
           </a>
           <a class="btn btn--line-light" href="#contacto" data-servicio="Análisis bromatológico del pasto con dron">Usar el formulario</a>
         </div>
-        <p class="dron__fuente" id="dron-fuente">* Según la información reportada por la empresa desarrolladora del software de análisis.</p>
+
+        <div class="dron__fuentes" id="dron-fuentes">
+          <p class="dron__fuentes-titulo">Referencias</p>
+          <ol>
+            <li>Ospina Rivera, O. F. et al. (2024). Validación de la estimación porcentual de K, P, Ca, Mg y S en la materia seca de gramíneas calculadas mediante un algoritmo de análisis de imágenes rojo, verde y azul (RGB). <i>Revista de Investigaciones Veterinarias del Perú</i>, 35(3). <a href="https://www.scielo.org.pe/scielo.php?pid=S1609-91172024000300002&amp;script=sci_arttext" target="_blank" rel="noopener">Ver artículo</a>. De aquí salen el rango observado en gramíneas tropicales y la referencia de requerimiento del NRC (2001) que usa el mapa.</li>
+            <li>Knight, C. (2020). <i>Minerals for Grazing Cattle</i>. UGA Forage Extension Team. <a href="https://site.extension.uga.edu/forageteam/2020/09/minerals-for-grazing-cattle/" target="_blank" rel="noopener">Ver publicación</a>. Explica que el contenido mineral del forraje varía mucho de un sitio a otro y que el requerimiento depende de la edad y la etapa productiva del animal.</li>
+          </ol>
+          <p>Alcance: el estudio evaluó siete gramíneas en época de lluvias, con imágenes tomadas a 20&nbsp;m de altura, y el método necesita plantas vivas. Sus resultados no demuestran por sí solos la exactitud del software en cada finca.</p>
+        </div>
       </div>
     </section>
 
