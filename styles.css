@@ -299,6 +299,12 @@ img { display: block; max-width: 100%; height: auto; }
 .contacto__lista dt { font-weight: 700; }
 .contacto__lista dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .contacto__lista a { text-underline-offset: 3px; }
+.contacto__lista address { font-style: normal; }
+.contacto__mapa {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; min-height: 44px;
+  font-weight: 700; color: #fff;
+}
+.contacto__mapa svg { flex: none; fill: none; stroke: var(--amarillo); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .form {
   display: grid; gap: 16px; padding: 22px;
