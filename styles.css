@@ -198,6 +198,36 @@ img { display: block; max-width: 100%; height: auto; }
 .card__info li::before { content: "✓"; margin-right: 8px; color: var(--verde); font-weight: 800; }
 .card .btn { margin-top: auto; }
 
+/* Registro ICA y ficha técnica (datos del folleto) */
+.card__ica { margin-top: -6px; font-size: 0.875rem; color: var(--suave); }
+.card__ica strong { color: var(--verde-osc); font-weight: 700; letter-spacing: 0.01em; }
+.card__ica span { font-size: 0.8125rem; }
+
+.ficha { border: 1.5px solid var(--linea); border-radius: var(--r-sm); background: var(--fondo); }
+.ficha summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 44px; padding: 8px 12px; cursor: pointer; list-style: none;
+  font-size: 0.9375rem; font-weight: 700; color: var(--verde);
+}
+.ficha summary::-webkit-details-marker { display: none; }
+.ficha summary::after { content: "+"; flex: none; font-size: 1.375rem; line-height: 1; transition: transform .2s; }
+.ficha[open] summary::after { transform: rotate(45deg); }
+.ficha summary:hover { color: var(--verde-osc); }
+.ficha__body { display: grid; gap: 12px; padding: 0 12px 12px; font-size: 0.9375rem; }
+.ficha__uso { margin: 0; display: grid; gap: 8px; }
+.ficha__uso dt { font-weight: 700; color: var(--verde-osc); }
+.ficha__uso dd { margin: 2px 0 0; color: var(--suave); line-height: 1.4; }
+.ficha__tabla { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; font-variant-numeric: tabular-nums; }
+.ficha__tabla caption { text-align: left; font-weight: 700; color: var(--verde-osc); padding-bottom: 6px; }
+.ficha__tabla th, .ficha__tabla td { padding: 6px 8px; text-align: left; border-bottom: 1px solid var(--linea); }
+.ficha__tabla thead th { font-size: 0.8125rem; font-weight: 700; color: var(--suave); background: var(--verde-claro); }
+.ficha__tabla tbody th { font-weight: 600; }
+.ficha__tabla td:last-child, .ficha__tabla thead th:last-child { text-align: right; white-space: nowrap; }
+.ficha__tabla tbody tr:last-child > * { border-bottom: 0; }
+.ficha__nota { font-size: 0.8125rem; color: var(--suave); line-height: 1.4; }
+/* al abrir una ficha, las demás tarjetas de la fila no se estiran */
+.cards:has(.ficha[open]) { align-items: start; }
+
 .qty { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--linea); }
 .js .qty + .btn { margin-top: 0; }
 .qty label { font-weight: 700; }
