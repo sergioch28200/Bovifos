@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bovifos | Sales mineralizadas para ganado</title>
-  <meta name="description" content="Bovifos: sales mineralizadas para ganado de cría, levante, ceba y leche. Bultos de 40 kg con fósforo del 4 al 10%. Cotiza por WhatsApp.">
+  <meta name="description" content="Bovifos: sales mineralizadas para ganado de cría, levante, ceba y leche. Bultos de 40 kg con fósforo del 4 al 10%, también en versión control mosca y garrapata. Cotiza por WhatsApp.">
   <meta name="theme-color" content="#1d6b3a">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
@@ -26,7 +26,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Bovifos",
-    "description": "Sales mineralizadas para ganado de cría, levante, ceba y leche, y análisis bromatológico del pasto con dron.",
+    "description": "Sales mineralizadas para ganado de cría, levante, ceba y leche, también en versión con control de mosca y garrapata, y análisis bromatológico del pasto con dron.",
     "url": "https://sergioch28200.github.io/Bovifos/",
     "logo": "https://sergioch28200.github.io/Bovifos/assets/img/marca/web/bovifos-logo-512.png",
     "telephone": "+57 312 345 8202",
@@ -157,17 +157,34 @@
         <p class="sr-only" id="filtro-estado" role="status"></p>
 
         <!--
+          Versión Control mosca y garrapata. Los íconos están en assets/img/iconos/
+          y se cargan desde styles.css (.ico--mosca y .ico--garrapata).
+        -->
+        <aside class="control" aria-labelledby="control-titulo">
+          <div class="control__icons" aria-hidden="true">
+            <span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span>
+          </div>
+          <div class="control__text">
+            <p class="control__tag">Disponible en las 5 fórmulas</p>
+            <h3 id="control-titulo">Versión Control mosca y garrapata</h3>
+            <p>Es la misma fórmula de cada sal, con aditivos especiales para el control de la mosca y la garrapata en tu ganado. Mismo registro ICA, misma dosis y el mismo bulto de 40&nbsp;kg. En cada referencia eliges cuántos bultos quieres en versión estándar y cuántos en versión control.</p>
+          </div>
+          <a class="btn btn--green control__btn js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero información sobre las sales con control de mosca y garrapata.">Preguntar por la versión control</a>
+        </aside>
+
+        <!--
           Fotos de producto: los PNG originales están en assets/img/productos/ y las
           versiones web (JPEG 480 y 720 px) en assets/img/productos/web/.
           Ver el README de esa carpeta para cambiar o añadir una referencia.
         -->
         <ul class="cards">
-          <li class="card" data-etapa="ceba leche" data-product="Sal Sabanera">
+          <li class="card" data-etapa="ceba leche">
             <div class="card__img">
               <img src="assets/img/productos/web/bovifos-sal-sabanera-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-sabanera-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-sabanera-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
                 alt="Bulto de 40 kg de sal mineralizada Bovifos Sabanera, vista frontal">
+              <p class="card__control"><span class="ico ico--mosca" aria-hidden="true"></span><span class="ico ico--garrapata" aria-hidden="true"></span>También en versión control</p>
             </div>
             <div class="card__body">
               <p class="card__stage">Ceba y preparto</p>
@@ -202,24 +219,36 @@
                   <p class="ficha__nota">Confirma el suministro para tu ganado con nosotros o con tu veterinario.</p>
                 </div>
               </details>
-              <div class="qty">
-                <label for="q-sab">Bultos</label>
-                <div class="qty__ctrl">
-                  <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal Sabanera">−</button>
-                  <input id="q-sab" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
-                  <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal Sabanera">+</button>
+              <fieldset class="versiones">
+                <legend>Bultos por versión</legend>
+                <div class="qty" data-product="Sal Sabanera">
+                  <label for="q-sab">Estándar</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal Sabanera estándar">−</button>
+                    <input id="q-sab" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal Sabanera estándar">+</button>
+                  </div>
                 </div>
-              </div>
+                <div class="qty qty--control" data-product="Sal Sabanera · Control mosca y garrapata">
+                  <label for="q-sab-c"><span class="qty__icons" aria-hidden="true"><span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span></span>Control mosca y garrapata</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal Sabanera control mosca y garrapata">−</button>
+                    <input id="q-sab-c" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal Sabanera control mosca y garrapata">+</button>
+                  </div>
+                </div>
+              </fieldset>
               <a class="btn btn--green btn--block js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero cotizar Sal Sabanera.">Cotizar Sal Sabanera</a>
             </div>
           </li>
 
-          <li class="card" data-etapa="ceba" data-product="Sal 4% Ceba">
+          <li class="card" data-etapa="ceba">
             <div class="card__img">
               <img src="assets/img/productos/web/bovifos-sal-4-ceba-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-4-ceba-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-4-ceba-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
                 alt="Bulto de 40 kg de sal mineralizada Bovifos 4% Ceba, vista frontal">
+              <p class="card__control"><span class="ico ico--mosca" aria-hidden="true"></span><span class="ico ico--garrapata" aria-hidden="true"></span>También en versión control</p>
             </div>
             <div class="card__body">
               <p class="card__stage">Ceba</p>
@@ -253,24 +282,36 @@
                   <p class="ficha__nota">Confirma el suministro para tu ganado con nosotros o con tu veterinario.</p>
                 </div>
               </details>
-              <div class="qty">
-                <label for="q-4">Bultos</label>
-                <div class="qty__ctrl">
-                  <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 4% Ceba">−</button>
-                  <input id="q-4" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
-                  <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 4% Ceba">+</button>
+              <fieldset class="versiones">
+                <legend>Bultos por versión</legend>
+                <div class="qty" data-product="Sal 4% Ceba">
+                  <label for="q-4">Estándar</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 4% Ceba estándar">−</button>
+                    <input id="q-4" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 4% Ceba estándar">+</button>
+                  </div>
                 </div>
-              </div>
+                <div class="qty qty--control" data-product="Sal 4% Ceba · Control mosca y garrapata">
+                  <label for="q-4-c"><span class="qty__icons" aria-hidden="true"><span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span></span>Control mosca y garrapata</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 4% Ceba control mosca y garrapata">−</button>
+                    <input id="q-4-c" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 4% Ceba control mosca y garrapata">+</button>
+                  </div>
+                </div>
+              </fieldset>
               <a class="btn btn--green btn--block js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero cotizar Sal 4% Ceba.">Cotizar Sal 4% Ceba</a>
             </div>
           </li>
 
-          <li class="card" data-etapa="levante" data-product="Sal 6% Levante">
+          <li class="card" data-etapa="levante">
             <div class="card__img">
               <img src="assets/img/productos/web/bovifos-sal-6-levante-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-6-levante-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-6-levante-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
                 alt="Bulto de 40 kg de sal mineralizada Bovifos 6% Levante, vista frontal">
+              <p class="card__control"><span class="ico ico--mosca" aria-hidden="true"></span><span class="ico ico--garrapata" aria-hidden="true"></span>También en versión control</p>
             </div>
             <div class="card__body">
               <p class="card__stage">Levante</p>
@@ -304,24 +345,36 @@
                   <p class="ficha__nota">Confirma el suministro para tu ganado con nosotros o con tu veterinario.</p>
                 </div>
               </details>
-              <div class="qty">
-                <label for="q-6">Bultos</label>
-                <div class="qty__ctrl">
-                  <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 6% Levante">−</button>
-                  <input id="q-6" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
-                  <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 6% Levante">+</button>
+              <fieldset class="versiones">
+                <legend>Bultos por versión</legend>
+                <div class="qty" data-product="Sal 6% Levante">
+                  <label for="q-6">Estándar</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 6% Levante estándar">−</button>
+                    <input id="q-6" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 6% Levante estándar">+</button>
+                  </div>
                 </div>
-              </div>
+                <div class="qty qty--control" data-product="Sal 6% Levante · Control mosca y garrapata">
+                  <label for="q-6-c"><span class="qty__icons" aria-hidden="true"><span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span></span>Control mosca y garrapata</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 6% Levante control mosca y garrapata">−</button>
+                    <input id="q-6-c" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 6% Levante control mosca y garrapata">+</button>
+                  </div>
+                </div>
+              </fieldset>
               <a class="btn btn--green btn--block js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero cotizar Sal 6% Levante.">Cotizar Sal 6% Levante</a>
             </div>
           </li>
 
-          <li class="card" data-etapa="cria" data-product="Sal 8% Cría-Leche">
+          <li class="card" data-etapa="cria">
             <div class="card__img">
               <img src="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
                 alt="Bulto de 40 kg de sal mineralizada Bovifos 8% Cría-Leche, vista frontal">
+              <p class="card__control"><span class="ico ico--mosca" aria-hidden="true"></span><span class="ico ico--garrapata" aria-hidden="true"></span>También en versión control</p>
             </div>
             <div class="card__body">
               <p class="card__stage">Cría y doble propósito</p>
@@ -356,24 +409,36 @@
                   <p class="ficha__nota">Confirma el suministro para tu ganado con nosotros o con tu veterinario.</p>
                 </div>
               </details>
-              <div class="qty">
-                <label for="q-8">Bultos</label>
-                <div class="qty__ctrl">
-                  <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 8% Cría-Leche">−</button>
-                  <input id="q-8" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
-                  <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 8% Cría-Leche">+</button>
+              <fieldset class="versiones">
+                <legend>Bultos por versión</legend>
+                <div class="qty" data-product="Sal 8% Cría-Leche">
+                  <label for="q-8">Estándar</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 8% Cría-Leche estándar">−</button>
+                    <input id="q-8" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 8% Cría-Leche estándar">+</button>
+                  </div>
                 </div>
-              </div>
+                <div class="qty qty--control" data-product="Sal 8% Cría-Leche · Control mosca y garrapata">
+                  <label for="q-8-c"><span class="qty__icons" aria-hidden="true"><span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span></span>Control mosca y garrapata</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 8% Cría-Leche control mosca y garrapata">−</button>
+                    <input id="q-8-c" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 8% Cría-Leche control mosca y garrapata">+</button>
+                  </div>
+                </div>
+              </fieldset>
               <a class="btn btn--green btn--block js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero cotizar Sal 8% Cría-Leche.">Cotizar Sal 8% Cría-Leche</a>
             </div>
           </li>
 
-          <li class="card" data-etapa="leche" data-product="Sal 10% Leche">
+          <li class="card" data-etapa="leche">
             <div class="card__img">
               <img src="assets/img/productos/web/bovifos-sal-10-leche-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-10-leche-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-10-leche-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
                 alt="Bulto de 40 kg de sal mineralizada Bovifos 10% Leche, vista frontal">
+              <p class="card__control"><span class="ico ico--mosca" aria-hidden="true"></span><span class="ico ico--garrapata" aria-hidden="true"></span>También en versión control</p>
             </div>
             <div class="card__body">
               <p class="card__stage">Lechería</p>
@@ -408,14 +473,25 @@
                   <p class="ficha__nota">Confirma el suministro para tu ganado con nosotros o con tu veterinario.</p>
                 </div>
               </details>
-              <div class="qty">
-                <label for="q-10">Bultos</label>
-                <div class="qty__ctrl">
-                  <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 10% Leche">−</button>
-                  <input id="q-10" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
-                  <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 10% Leche">+</button>
+              <fieldset class="versiones">
+                <legend>Bultos por versión</legend>
+                <div class="qty" data-product="Sal 10% Leche">
+                  <label for="q-10">Estándar</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 10% Leche estándar">−</button>
+                    <input id="q-10" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 10% Leche estándar">+</button>
+                  </div>
                 </div>
-              </div>
+                <div class="qty qty--control" data-product="Sal 10% Leche · Control mosca y garrapata">
+                  <label for="q-10-c"><span class="qty__icons" aria-hidden="true"><span class="ico ico--mosca"></span><span class="ico ico--garrapata"></span></span>Control mosca y garrapata</label>
+                  <div class="qty__ctrl">
+                    <button type="button" class="qty__btn" data-step="-1" aria-label="Quitar un bulto de Sal 10% Leche control mosca y garrapata">−</button>
+                    <input id="q-10-c" class="qty__input" type="number" min="0" max="999" value="0" inputmode="numeric">
+                    <button type="button" class="qty__btn" data-step="1" aria-label="Agregar un bulto de Sal 10% Leche control mosca y garrapata">+</button>
+                  </div>
+                </div>
+              </fieldset>
               <a class="btn btn--green btn--block js-wa" href="https://wa.me/573123458202" data-msg="Hola Bovifos, quiero cotizar Sal 10% Leche.">Cotizar Sal 10% Leche</a>
             </div>
           </li>
@@ -509,6 +585,10 @@
             <p>El número de cada fórmula indica su porcentaje de fósforo. La concentración de cada mineral viene impresa en la etiqueta del bulto; si la necesitas antes de comprar, pídenos la ficha técnica.</p>
           </details>
           <details>
+            <summary>¿Qué es la versión Control mosca y garrapata?</summary>
+            <p>Es la misma fórmula de cada sal, con aditivos especiales para el control de la mosca y la garrapata en el ganado. Conserva el registro ICA y la dosis de la ficha técnica de cada referencia, y viene en el mismo bulto de 40&nbsp;kg. La tienes en las cinco referencias: en el catálogo, suma los bultos en la fila «Control mosca y garrapata» del producto que necesitas.</p>
+          </details>
+          <details>
             <summary>¿Cómo se suministra?</summary>
             <p>A voluntad, en saladeros cubiertos, limpios y de fácil acceso para todo el lote. Revisa y repón con frecuencia. La dosis diaria depende del peso y la etapa; te la calculamos.</p>
           </details>
@@ -573,6 +653,7 @@
               <option>Sal 6% Levante</option>
               <option>Sal 8% Cría-Leche</option>
               <option>Sal 10% Leche</option>
+              <option>Sales con control de mosca y garrapata</option>
               <option>Análisis bromatológico del pasto con dron</option>
             </select>
           </label>

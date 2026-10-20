@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><!-- PROVISIONAL: reemplazar por el ícono oficial de Bovifos -->
+<circle cx="32" cy="32" r="28" fill="#fff"/>
+<g stroke="#3b2414" stroke-width="2.2" stroke-linecap="round" fill="none"><path d="M24 29q-6-4-9-10M23 33q-7-1-11-5M23 38q-7 2-10 7M25 42q-4 5-5 10M40 29q6-4 9-10M41 33q7-1 11-5M41 38q7 2 10 7M39 42q4 5 5 10"/></g>
+<rect x="29.5" y="15" width="5" height="7" rx="2" fill="#3b2414"/>
+<ellipse cx="32" cy="35" rx="10" ry="13" fill="#7a4a26"/><ellipse cx="32" cy="27.5" rx="6.5" ry="5.5" fill="#3b2414"/>
+<circle cx="32" cy="32" r="27.5" fill="none" stroke="#d62828" stroke-width="5"/><path d="M12.6 12.6l38.8 38.8" stroke="#d62828" stroke-width="5"/>
+</svg>

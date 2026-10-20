@@ -71,13 +71,14 @@ const detalle = document.getElementById("pedido-detalle");
 const enviar = document.getElementById("pedido-enviar");
 const floatBtn = document.querySelector(".wa-float");
 const formPedido = document.getElementById("form-pedido");
-const productCards = [...document.querySelectorAll(".card[data-product]")];
+// Cada referencia tiene una fila por versión (estándar y Control mosca y garrapata)
+const qtyRows = [...document.querySelectorAll(".qty[data-product]")];
 
 const getItems = () =>
-  productCards
-    .map((card) => ({
-      name: card.dataset.product,
-      qty: parseInt(card.querySelector(".qty__input").value, 10) || 0,
+  qtyRows
+    .map((row) => ({
+      name: row.dataset.product,
+      qty: parseInt(row.querySelector(".qty__input").value, 10) || 0,
     }))
     .filter((item) => item.qty > 0);
 
@@ -113,7 +114,9 @@ const updatePedido = () => {
 const setQty = (input, value) => {
   const n = Math.min(999, Math.max(0, parseInt(value, 10) || 0));
   input.value = n;
-  input.closest(".card").classList.toggle("is-selected", n > 0);
+  const card = input.closest(".card");
+  const anySelected = [...card.querySelectorAll(".qty__input")].some((i) => parseInt(i.value, 10) > 0);
+  card.classList.toggle("is-selected", anySelected);
 };
 
 document.querySelectorAll(".qty").forEach((qty) => {
@@ -136,8 +139,8 @@ document.getElementById("pedido-vaciar").addEventListener("click", () => {
 try {
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
   saved.forEach(({ name, qty }) => {
-    const card = productCards.find((c) => c.dataset.product === name);
-    if (card) setQty(card.querySelector(".qty__input"), qty);
+    const row = qtyRows.find((r) => r.dataset.product === name);
+    if (row) setQty(row.querySelector(".qty__input"), qty);
   });
 } catch (e) { /* sin pedido guardado */ }
 updatePedido();
