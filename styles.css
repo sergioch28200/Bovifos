@@ -97,7 +97,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* el emblema es verde: en el pie oscuro va sobre un disco blanco para que se lea */
 .brand__logo--footer { width: 56px; height: 56px; padding: 3px; border-radius: 50%; background: #fff; }
 .menu { display: flex; gap: 28px; margin-left: auto; }
-.menu a { font-weight: 600; text-decoration: none; }
+.menu a { font-weight: 600; text-decoration: none; white-space: nowrap; }
 .menu a:hover { color: var(--verde); text-decoration: underline; text-underline-offset: 6px; }
 .header__actions { display: flex; align-items: center; gap: 8px; }
 
@@ -220,6 +220,41 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .card--help p { color: rgba(255, 255, 255, 0.82); }
 .card--help .btn { margin-top: 0; }
+
+/* ===== Servicio: análisis con dron ===== */
+.dron { background: var(--verde-osc); color: #fff; padding-block: 64px; }
+.dron__inner { display: grid; gap: 32px; }
+.dron__inner > * { min-width: 0; }
+.dron__media { position: relative; margin: 0; }
+.dron__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); background: var(--verde); }
+.dron__tag {
+  display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 999px;
+  background: var(--amarillo); color: var(--verde-osc); font-size: 0.875rem; font-weight: 700;
+}
+.dron__lead { margin-top: 14px; max-width: 52ch; font-size: 1.125rem; color: rgba(255, 255, 255, 0.86); }
+
+.dron__entregables { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
+.dron__entregables li {
+  display: flex; gap: 14px; align-items: flex-start; padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: var(--r); background: rgba(255, 255, 255, 0.05);
+}
+.dron__entregables svg {
+  flex: none; width: 44px; height: 44px; padding: 10px; border-radius: 50%;
+  background: rgba(255, 199, 44, 0.16); stroke: var(--amarillo); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round;
+}
+.dron__entregables h3 { font-size: 1.125rem; line-height: 1.25; }
+.dron__entregables p { margin-top: 4px; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.8); }
+
+.dron__pasos { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.dron__pasos li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9375rem; line-height: 1.35; color: rgba(255, 255, 255, 0.9); }
+.dron__pasos span {
+  flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--amarillo); color: var(--verde-osc); font-size: 0.875rem; font-weight: 800;
+}
+
+.dron__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn--line-light { border-color: rgba(255, 255, 255, 0.6); color: #fff; }
+.btn--line-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
 
 /* ===== Cómo comprar ===== */
 .comprar { padding-block: 72px; }
@@ -348,10 +383,21 @@ img { display: block; max-width: 100%; height: auto; }
   .catalogo__head { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
   .filtros { justify-content: flex-end; max-width: 560px; }
   .faq__inner { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 56px; align-items: start; }
+  .dron { padding-block: 88px; }
+  .dron__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+  .dron__media img { aspect-ratio: 6 / 7; }
+  .dron__entregables { grid-template-columns: 1fr 1fr; }
   .contacto { padding-block: 88px; }
   .contacto__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
   .footer__inner { grid-template-columns: 2fr 1fr 1fr; }
   .footer__nav, .footer__contact { flex-direction: column; }
+}
+
+/* Escritorio estrecho: cinco enlaces + WhatsApp en una sola línea */
+@media (min-width: 900px) and (max-width: 1120px) {
+  .header__inner { gap: 16px; }
+  .menu { gap: 18px; }
+  .menu a { font-size: 0.96875rem; }
 }
 
 @media (max-width: 899px) {
@@ -377,6 +423,8 @@ img { display: block; max-width: 100%; height: auto; }
   .brand { font-size: 1.5rem; }
   .header__actions .btn--sm { padding-inline: 14px; }
   .hero__ctas .btn { flex: 1 1 100%; }
+  .dron__ctas .btn { flex: 1 1 100%; }
+  .dron__pasos { grid-template-columns: 1fr; }
   .form { padding: 18px; }
   .pedido__vaciar { padding-inline: 8px; }
   .pedido .btn { padding-inline: 16px; }

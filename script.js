@@ -149,6 +149,11 @@ const send = form.querySelector(".form__send");
 
 form.addEventListener("input", () => { ready.hidden = true; });
 
+// Enlaces que llevan al formulario con un servicio ya elegido (p. ej. análisis con dron)
+document.querySelectorAll("[data-servicio]").forEach((link) =>
+  link.addEventListener("click", () => { form.elements.producto.value = link.dataset.servicio; ready.hidden = true; })
+);
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(form);
@@ -174,7 +179,7 @@ form.addEventListener("submit", (e) => {
   ];
   if (data.get("animales")) lines.push(`Número de animales: ${data.get("animales")}`);
   if (items.length) lines.push("Pedido:", ...pedidoLines(items));
-  if (data.get("producto")) lines.push(`Producto de interés: ${data.get("producto")}`);
+  if (data.get("producto")) lines.push(`Me interesa: ${data.get("producto")}`);
   else if (!items.length) lines.push("Producto: necesito asesoría");
   if (data.get("mensaje").trim()) lines.push(`Mensaje: ${data.get("mensaje").trim()}`);
 
