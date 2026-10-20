@@ -32,6 +32,55 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Carrusel del hero: cambia de foto cada 6 s. Se detiene con el botón de pausa, al pasar
+// el mouse o el foco por encima, con la pestaña oculta y si la persona prefiere menos movimiento.
+const slider = document.querySelector(".slider");
+if (slider) {
+  const slides = [...slider.querySelectorAll(".slide")];
+  const dots = [...slider.querySelectorAll(".slider__dot")];
+  const pauseBtn = slider.querySelector(".slider__pause");
+  const INTERVAL = 6000;
+  let current = 0;
+  let timer = null;
+  let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let hovering = false;
+
+  const show = (index) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === current);
+      slide.setAttribute("aria-hidden", String(i !== current));
+    });
+    dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === current)));
+    // las fotos ocultas no se cargan solas (loading="lazy"): se pide la siguiente con antelación
+    slides[(current + 1) % slides.length].querySelector("img").loading = "eager";
+  };
+
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => {
+    stop();
+    if (!paused && !hovering && !document.hidden) timer = setInterval(() => show(current + 1), INTERVAL);
+  };
+
+  const setPaused = (value) => {
+    paused = value;
+    slider.classList.toggle("is-paused", paused);
+    pauseBtn.setAttribute("aria-label", paused ? "Reproducir fotos" : "Pausar fotos");
+    start();
+  };
+
+  pauseBtn.addEventListener("click", () => setPaused(!paused));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => { show(i); start(); }));
+  slider.addEventListener("mouseenter", () => { hovering = true; stop(); });
+  slider.addEventListener("mouseleave", () => { hovering = false; start(); });
+  slider.addEventListener("focusin", () => { hovering = true; stop(); });
+  slider.addEventListener("focusout", () => { hovering = false; start(); });
+  document.addEventListener("visibilitychange", start);
+
+  show(0);
+  setPaused(paused);
+}
+
 // Filtro por etapa
 const filtros = document.querySelector(".filtros");
 const filtroEstado = document.getElementById("filtro-estado");
