@@ -198,7 +198,7 @@ img { display: block; max-width: 100%; height: auto; }
 .card__info li::before { content: "✓"; margin-right: 8px; color: var(--verde); font-weight: 800; }
 .card .btn { margin-top: auto; }
 
-/* Registro ICA y ficha técnica (datos del folleto) */
+/* Registro ICA y ficha técnica */
 .card__ica { margin-top: -6px; font-size: 0.875rem; color: var(--suave); }
 .card__ica strong { color: var(--verde-osc); font-weight: 700; letter-spacing: 0.01em; }
 .card__ica span { font-size: 0.8125rem; }

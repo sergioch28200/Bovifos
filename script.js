@@ -1,5 +1,5 @@
 // Número de WhatsApp de ventas (código de país + número, sin "+" ni espacios)
-const WHATSAPP_NUMBER = "573203060322";
+const WHATSAPP_NUMBER = "573123458202";
 const DEFAULT_MSG = "Hola Bovifos, quiero información sobre sus sales mineralizadas.";
 const STORAGE_KEY = "bovifos-pedido";
 
@@ -47,7 +47,8 @@ const applyFilter = (value) => {
     }
   });
   cards.forEach((card) => {
-    card.hidden = value !== "todas" && card.dataset.etapa !== value;
+    // una referencia puede servir para varias etapas (data-etapa="ceba leche")
+    card.hidden = value !== "todas" && !card.dataset.etapa.split(" ").includes(value);
   });
   const shown = cards.filter((c) => !c.hidden).length;
   filtroEstado.textContent = `Mostrando ${shown} de ${cards.length} fórmulas`;
