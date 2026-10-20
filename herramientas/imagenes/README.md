@@ -8,9 +8,14 @@ Toma `assets/img/productos/originales/bovifos-sal-sabanera-frontal.png` como bas
 con la misma estructura: cambia el color de las bandas laterales, el texto lateral (`BOVIFOS 4%`…), el nombre
 bajo el panel amarillo y corrige `40Kg` → `40kg`. Conserva la trama tejida del saco.
 
+Con `-Logo`, además reemplaza el emblema por el logotipo oficial (escalado al círculo del saco, con la tinta
+y la trama del tejido):
+
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File .\herramientas\imagenes\generar.ps1 -Base .\assets\img\productos\originales\bovifos-sal-sabanera-frontal.png -Destino .\assets\img\productos
+powershell -NoProfile -ExecutionPolicy Bypass -File .\herramientas\imagenes\generar.ps1 -Base .\assets\img\productos\originales\bovifos-sal-sabanera-frontal.png -Logo .\assets\img\marca\bovifos-logo.png -Destino .\assets\img\productos
 ```
+
+Si se cambia el logo, regenerar también los íconos de la web con `logo-web.ps1`.
 
 Los colores de banda y los textos de cada referencia están al inicio de `generar.ps1`.
 

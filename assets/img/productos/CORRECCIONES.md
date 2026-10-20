@@ -28,14 +28,13 @@ de la tabla de abajo desaparecen**: emblema, lema y panel son los de la Sabanera
 lleva `PESO NETO AL EMPACAR 40kg` y su nombre (`4% CEBA`, `6% LEVANTE`, `8% CRÍA-LECHE`, `10% LECHE`).
 Se cambió `40Kg` por `40kg`: el símbolo del kilogramo va en minúscula. No hubo espacio para separarlo del número.
 
-**Pendiente: el logotipo oficial (`../marca/bovifos-logo.png`) no coincide con el emblema de los sacos.**
+**Emblema:** por decisión de Bovifos (20 de octubre de 2026), los cinco sacos llevan el **logotipo oficial**
+(`../marca/bovifos-logo.png`) en lugar del emblema que traía la foto de la Sabanera.
 
-- El logo dice **COMPAÑIA ZOOTECNICA DE COLOMBIA**, sin tilde en la Í ni en la É. Debe decir **COMPAÑÍA ZOOTÉCNICA**.
-  El emblema de la Sabanera (el que llevan ahora los cinco sacos) sí está bien escrito.
-- Las siluetas de las reses también son distintas entre el logo y el saco.
-
-Hace falta decidir cuál es la versión oficial y corregir la tilde en el archivo de diseño (vector) del logo.
-Cuando exista esa versión corregida, se puede poner en los cinco sacos para que todo quede igual.
+**Pendiente:** el logo oficial dice **COMPAÑIA ZOOTECNICA DE COLOMBIA**, sin tilde en la Í ni en la É.
+Debe decir **COMPAÑÍA ZOOTÉCNICA**. Se corregirá en el archivo del logo. Después basta con reemplazar
+`../marca/bovifos-logo.png` y volver a ejecutar `herramientas/imagenes/generar.ps1` con `-Logo`: los cinco sacos,
+el favicon y el encabezado se actualizan con la versión corregida.
 
 ## Errores encontrados en las imágenes originales (`originales/`)
 

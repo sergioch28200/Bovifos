@@ -173,6 +173,94 @@ public static class Procesador
         return largo;
     }
 
+    // Coloca el logotipo oficial sobre el emblema del saco, con las tintas y la trama del saco.
+    // (cx, cy, diametro): círculo verde del emblema en el saco. tinta*/blanco*: colores impresos del saco.
+    // parche: zona de saco blanco sin texto de donde se toma la trama del tejido (se repite en mosaico).
+    public static int PonerLogo(Lienzo c, Lienzo logo, float cx, float cy, float diametro,
+                                float[] tinta, float[] blanco, Rectangle parche)
+    {
+        // círculo verde del logo
+        var m = logo.Mascara(new Rectangle(0, 0, logo.W, logo.H), 100, 170, 0.3f, 0.05f, 0.6f);
+        int x0 = int.MaxValue, y0 = int.MaxValue, x1 = -1, y1 = -1;
+        double sl = 0; int nv = 0;
+        for (int i = 0; i < m.Length; i++) if (m[i])
+        {
+            int x = i % logo.W, y = i / logo.W;
+            x0 = Math.Min(x0, x); y0 = Math.Min(y0, y); x1 = Math.Max(x1, x); y1 = Math.Max(y1, y);
+            sl += logo.L(i); nv++;
+        }
+        float lcx = (x0 + x1) / 2f, lcy = (y0 + y1) / 2f, ld = Math.Max(x1 - x0, y1 - y0);
+        float lVerde = (float)(sl / nv), lBlanco = 1f;
+        float esc = diametro / ld;
+
+        // trama limpia del tejido
+        var trama = Trama(c, 5);
+
+        int n = 0;
+        int r = (int)Math.Ceiling(logo.W * esc);
+        for (int y = (int)(cy - r); y <= (int)(cy + r); y++)
+            for (int x = (int)(cx - r); x <= (int)(cx + r); x++)
+            {
+                if (x < 0 || y < 0 || x >= c.W || y >= c.H) continue;
+                float lx = (x - cx) / esc + lcx, ly = (y - cy) / esc + lcy;   // punto en el logo
+                float lr, lg, lb, la; Muestra(logo, lx, ly, out lr, out lg, out lb, out la);
+                if (la <= 0.01f) continue;
+                int i = y * c.W + x;
+                float L = 0.2126f * lr + 0.7152f * lg + 0.0722f * lb;
+                float t = Math.Max(0f, Math.Min(1f, (L - lVerde) / (lBlanco - lVerde)));   // 0 = verde, 1 = blanco
+                // mosaico en espejo: sin costuras entre repeticiones del parche
+                int px = parche.Left + Espejo(x, parche.Width);
+                int py = parche.Top + Espejo(y, parche.Height);
+                float tex = trama[py * c.W + px];
+                float nr = Clamp((tinta[0] + (blanco[0] - tinta[0]) * t) * tex);
+                float ng = Clamp((tinta[1] + (blanco[1] - tinta[1]) * t) * tex);
+                float nb = Clamp((tinta[2] + (blanco[2] - tinta[2]) * t) * tex);
+                c.R[i] = c.R[i] * (1 - la) + nr * la; c.G[i] = c.G[i] * (1 - la) + ng * la; c.B[i] = c.B[i] * (1 - la) + nb * la;
+                n++;
+            }
+        return n;
+    }
+
+    static int Espejo(int v, int n)
+    {
+        int k = ((v % (2 * n)) + 2 * n) % (2 * n);
+        return k < n ? k : 2 * n - 1 - k;
+    }
+
+    // Muestreo bilineal (color premultiplicado por alfa para no oscurecer los bordes)
+    static void Muestra(Lienzo s, float x, float y, out float r, out float g, out float b, out float a)
+    {
+        r = g = b = a = 0;
+        int x0 = (int)Math.Floor(x), y0 = (int)Math.Floor(y);
+        float fx = x - x0, fy = y - y0;
+        float sr = 0, sg = 0, sb = 0, sa = 0;
+        for (int k = 0; k < 4; k++)
+        {
+            int xx = x0 + (k & 1), yy = y0 + (k >> 1);
+            if (xx < 0 || yy < 0 || xx >= s.W || yy >= s.H) continue;
+            float w = ((k & 1) == 1 ? fx : 1 - fx) * ((k >> 1) == 1 ? fy : 1 - fy);
+            int i = yy * s.W + xx; float al = s.A[i] * w;
+            sr += s.R[i] * al; sg += s.G[i] * al; sb += s.B[i] * al; sa += al;
+        }
+        if (sa > 1e-4f) { r = sr / sa; g = sg / sa; b = sb / sa; }
+        a = sa;
+    }
+
+    // Color medio de los píxeles claros (blanco impreso del saco) dentro de un círculo
+    public static float[] ColorClaro(Lienzo c, float cx, float cy, float radio)
+    {
+        double r = 0, g = 0, b = 0; int n = 0;
+        for (int y = (int)(cy - radio); y < cy + radio; y++)
+            for (int x = (int)(cx - radio); x < cx + radio; x++)
+            {
+                if (x < 0 || y < 0 || x >= c.W || y >= c.H) continue;
+                if ((x - cx) * (x - cx) + (y - cy) * (y - cy) > radio * radio) continue;
+                int i = y * c.W + x; if (c.L(i) < 0.8f) continue;
+                r += c.R[i]; g += c.G[i]; b += c.B[i]; n++;
+            }
+        return n == 0 ? new float[] { 0.92f, 0.92f, 0.9f } : new float[] { (float)(r / n), (float)(g / n), (float)(b / n) };
+    }
+
     // Color medio del texto verde en una zona (para reutilizar exactamente el verde de impresión)
     public static float[] ColorTexto(Lienzo c, Rectangle zona)
     {

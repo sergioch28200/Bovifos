@@ -1,5 +1,5 @@
 ﻿# Genera los cinco sacos con la estructura de la Sal Sabanera.
-param([string]$Base, [string]$Destino)
+param([string]$Base, [string]$Destino, [string]$Logo = "")
 $s = Split-Path -Parent $MyInvocation.MyCommand.Path
 Add-Type -Path "$s\Saco.cs", "$s\Procesador.cs" -ReferencedAssemblies System.Drawing
 New-Item -ItemType Directory -Force $Destino | Out-Null
@@ -20,8 +20,21 @@ $orig = [Lienzo]::Cargar($Base)
 $verde = [Procesador]::ColorTexto($orig, (Rc 400 1040 290 55))
 "verde de impresión: {0:N3} {1:N3} {2:N3}" -f $verde[0], $verde[1], $verde[2]
 
+# Logotipo oficial: tintas del emblema impreso en la Sabanera (verde del anillo y blanco del centro)
+$logoImg = $null
+if ($Logo) {
+  $logoImg = [Lienzo]::Cargar($Logo)
+  $tinta = [Procesador]::ColorTexto($orig, (Rc 366 460 40 140))
+  $blanco = [Procesador]::ColorClaro($orig, 532, 530, 110)
+  "tinta del emblema: {0:N3} {1:N3} {2:N3} / blanco: {3:N3} {4:N3} {5:N3}" -f $tinta[0], $tinta[1], $tinta[2], $blanco[0], $blanco[1], $blanco[2]
+}
+
 foreach ($r in $refs) {
   $c = $orig.Copia()
+
+  # 0. Emblema: se reemplaza por el logotipo oficial (centro 532,530; anillo verde de ~349 px)
+  if ($logoImg) { [void][Procesador]::PonerLogo($c, $logoImg, 532, 530, 352, $tinta, $blanco, (Rc 390 150 300 90)) }
+
   $t = [Procesador]::Trama($c, 5)
 
   # 1. Peso neto: "40Kg" -> "40kg" (símbolo correcto del kilogramo, en minúscula)
