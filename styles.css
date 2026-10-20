@@ -174,24 +174,14 @@ img { display: block; max-width: 100%; height: auto; }
 .card:hover { border-color: #b9c8b7; }
 .card.is-selected { border-color: var(--verde); box-shadow: 0 0 0 1px var(--verde), var(--sombra); }
 
-.card__img {
-  position: relative; display: grid; place-items: center;
-  aspect-ratio: 16 / 11; background: linear-gradient(#fafbf8, #eef1ea);
+/* Foto del bulto: el fondo coincide con el de las versiones JPEG (#f6f7f3) */
+.card__img { overflow: hidden; aspect-ratio: 1 / 1; background: #f6f7f3; }
+.card__img img {
+  width: 100%; height: 100%; padding: 8px 0 0;
+  object-fit: contain; object-position: center bottom;   /* completa, sin recortes ni deformación */
+  transition: transform .3s ease;
 }
-.card__img svg { width: 34%; height: auto; filter: drop-shadow(0 10px 10px rgba(17, 54, 30, 0.14)); }
-/* foto real del bulto: completa, sin recortes */
-.card__img img { width: 100%; height: 100%; padding: 16px; object-fit: contain; }
-.bulto__saco { fill: #e4e8df; stroke: #a9b5a6; stroke-width: 2; }
-.bulto__costura { stroke: #a9b5a6; stroke-width: 2; stroke-dasharray: 5 5; }
-.bulto__etiqueta { fill: #fff; stroke: #c3cdc0; stroke-width: 1.5; }
-.card__p {
-  position: absolute; left: 14px; top: 14px; z-index: 1;
-  display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%;
-  background: var(--amarillo); color: var(--verde-osc);
-  font-size: 1.625rem; font-weight: 800; line-height: 1;
-}
-.card__p small { font-size: 0.55em; }
-.card__p--word { font-size: 1.25rem; }
+.card:hover .card__img img { transform: scale(1.03); }
 
 .card__body { display: flex; flex-direction: column; gap: 12px; padding: 18px 18px 20px; flex: 1; }
 .card__stage {
