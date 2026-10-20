@@ -296,6 +296,16 @@ img { display: block; max-width: 100%; height: auto; }
 .ficha__tabla td:last-child, .ficha__tabla thead th:last-child { text-align: right; white-space: nowrap; }
 .ficha__tabla tbody tr:last-child > * { border-bottom: 0; }
 .ficha__nota { font-size: 0.8125rem; color: var(--suave); line-height: 1.4; }
+.ficha__tabla caption span { font-weight: 600; color: var(--suave); }
+/* fila que solo lleva la versión Control mosca y garrapata */
+.ficha__tabla .ficha__mg > * { background: #fff8e1; }
+.ficha__tabla .ficha__mg > :first-child { box-shadow: inset 3px 0 0 var(--amarillo); }
+.ficha__tabla .ficha__mg--tag td {
+  padding-bottom: 0; border-bottom: 0; text-align: left; white-space: normal;
+  font-size: 0.75rem; font-weight: 700; line-height: 1.4; color: var(--verde-osc); --ico: 18px;
+}
+.ficha__mg--tag .ico { vertical-align: -4px; margin-right: 2px; }
+.ficha__mg--tag .ico:nth-child(2) { margin-right: 6px; }
 /* al abrir una ficha, las demás tarjetas de la fila no se estiran */
 .cards:has(.ficha[open]) { align-items: start; }
 
