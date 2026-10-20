@@ -244,10 +244,11 @@ img { display: block; max-width: 100%; height: auto; }
 /* ===== Contacto ===== */
 .contacto { background: var(--verde); color: #fff; padding-block: 64px; }
 .contacto__inner { display: grid; gap: 40px; }
+.contacto__inner > * { min-width: 0; }
 .contacto__info > p:first-of-type { margin-top: 12px; max-width: 46ch; color: rgba(255, 255, 255, 0.86); }
 .contacto__tel {
   display: inline-block; margin-top: 28px;
-  font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; line-height: 1;
+  font-size: clamp(1.875rem, 11vw, 3.5rem); font-weight: 800; line-height: 1; white-space: nowrap;
   text-decoration: none; font-variant-numeric: tabular-nums;
 }
 .contacto__tel:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 8px; }
@@ -255,7 +256,7 @@ img { display: block; max-width: 100%; height: auto; }
 .contacto__lista { margin: 0; }
 .contacto__lista div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255, 255, 255, 0.25); }
 .contacto__lista dt { font-weight: 700; }
-.contacto__lista dd { margin: 0; }
+.contacto__lista dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .contacto__lista a { text-underline-offset: 3px; }
 
 .form {
