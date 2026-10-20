@@ -20,7 +20,7 @@ Coloca aquí el archivo **original** del logotipo (el que usa la marca en sus em
   de 32, 96, 180, 192 y 512 px, generadas con `herramientas/imagenes/logo-web.ps1`.
 - `bovifos-logo.svg` **no es vectorial**: contiene la misma imagen PNG incrustada. Si existe el archivo
   original en AI, PDF, EPS o CorelDRAW, conviene ponerlo aquí.
-- El logo dice “COMPAÑIA ZOOTECNICA”, sin tildes: ver `../productos/CORRECCIONES.md`.
+- El logo dice “COMPAÑIA ZOOTECNICA”, sin tildes; Bovifos decidió mantenerlo así.
 
 ## Dónde se usa
 
