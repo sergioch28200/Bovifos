@@ -600,46 +600,69 @@
         <!-- Ilustración: el dron sobrevuela el potrero y escanea el pasto (los números enlazan con la lista) -->
         <div class="dron__escena">
           <figure class="escena">
+            <!-- Fondo: foto real de un potrero (Unsplash), recortada por abajo para dejar el horizonte a 3/5 de la altura -->
+            <img class="escena__foto"
+              src="https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=1280&h=800&q=70"
+              srcset="https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=800&h=500&q=70 800w,
+                      https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=1280&h=800&q=70 1280w"
+              sizes="(min-width: 960px) 55vw, 100vw" width="1280" height="800" loading="lazy" decoding="async" alt="">
             <svg viewBox="0 0 640 400" role="img" aria-labelledby="escena-titulo escena-desc">
               <title id="escena-titulo">Dron analizando el pasto de un potrero</title>
-              <desc id="escena-desc">Un dron sobrevuela la pradera y proyecta su cámara sobre el pasto; la zona escaneada aparece dividida en cuadros de colores, como un mapa de composición por zonas.</desc>
+              <desc id="escena-desc">Un dron sobrevuela un potrero bajo el cielo y proyecta su cámara sobre el pasto; la zona escaneada aparece dividida en cuadros de colores, como un mapa de composición por zonas.</desc>
               <defs>
-                <linearGradient id="escena-cielo" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#0a2414"/>
-                  <stop offset="1" stop-color="#1a4d2c"/>
-                </linearGradient>
                 <linearGradient id="escena-haz" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0.42"/>
-                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.06"/>
+                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0.45"/>
+                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.08"/>
                 </linearGradient>
                 <linearGradient id="escena-brillo" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#ffc72c" stop-opacity="0"/>
-                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.35"/>
+                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.4"/>
                 </linearGradient>
                 <clipPath id="escena-huella"><polygon points="200,280 440,280 520,372 120,372"/></clipPath>
-                <clipPath id="escena-campo"><path d="M0 262C160 250 480 250 640 262V400H0Z"/></clipPath>
+                <!-- materiales del dron -->
+                <linearGradient id="dron-cuerpo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffffff"/>
+                  <stop offset="0.45" stop-color="#e6ebe8"/>
+                  <stop offset="1" stop-color="#a9b3ae"/>
+                </linearGradient>
+                <linearGradient id="dron-tapa" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#d9dfdc"/>
+                  <stop offset="1" stop-color="#8f9a95"/>
+                </linearGradient>
+                <linearGradient id="dron-motor" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#181b1a"/>
+                  <stop offset="0.5" stop-color="#6f7773"/>
+                  <stop offset="1" stop-color="#181b1a"/>
+                </linearGradient>
+                <radialGradient id="dron-helice">
+                  <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
+                  <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.18"/>
+                  <stop offset="0.94" stop-color="#e8eee9" stop-opacity="0.42"/>
+                  <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="dron-gimbal" cx="0.4" cy="0.35">
+                  <stop offset="0" stop-color="#55605a"/>
+                  <stop offset="1" stop-color="#121514"/>
+                </radialGradient>
+                <radialGradient id="dron-lente" cx="0.35" cy="0.35">
+                  <stop offset="0" stop-color="#7fb4e0"/>
+                  <stop offset="0.45" stop-color="#1d3d5c"/>
+                  <stop offset="1" stop-color="#05080b"/>
+                </radialGradient>
+                <filter id="dron-relieve" x="-20%" y="-30%" width="140%" height="170%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0b1a10" flood-opacity="0.4"/>
+                </filter>
+                <filter id="escena-difuso" x="-50%" y="-200%" width="200%" height="500%">
+                  <feGaussianBlur stdDeviation="4"/>
+                </filter>
               </defs>
 
-              <!-- cielo, colinas y árboles -->
-              <rect width="640" height="400" fill="url(#escena-cielo)"/>
-              <ellipse cx="320" cy="250" rx="300" ry="60" fill="#ffc72c" opacity="0.06"/>
-              <path d="M0 250C90 215 170 225 250 240S420 210 520 228 610 240 640 232V400H0Z" fill="#1d5a33"/>
-              <g fill="#14432a">
-                <circle cx="62" cy="226" r="11"/><rect x="60" y="232" width="4" height="10"/>
-                <circle cx="84" cy="230" r="8"/><rect x="82" y="234" width="3" height="8"/>
-                <circle cx="566" cy="222" r="12"/><rect x="564" y="228" width="4" height="11"/>
-                <circle cx="598" cy="230" r="8"/><rect x="596" y="234" width="3" height="8"/>
-              </g>
-
-              <!-- potrero con surcos en perspectiva -->
-              <path d="M0 262C160 250 480 250 640 262V400H0Z" fill="#24703f"/>
-              <g clip-path="url(#escena-campo)" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2">
-                <path d="M122 262L-320 400M171 262L-160 400M221 262L0 400M270 262L160 400M320 262V400M370 262L480 400M419 262L640 400M469 262L800 400M518 262L960 400"/>
-              </g>
+              <!-- sombra del dron sobre el pasto -->
+              <ellipse cx="334" cy="332" rx="44" ry="6" fill="#0a1a0e" opacity="0.35" filter="url(#escena-difuso)"/>
 
               <!-- zona escaneada: cuadros como un mapa por zonas -->
               <polygon points="200,280 440,280 520,372 120,372" fill="#ffc72c" opacity="0.1"/>
-              <g opacity="0.78" stroke="#0c2a17" stroke-opacity="0.45" stroke-width="1">
+              <g opacity="0.62" stroke="#ffffff" stroke-opacity="0.45" stroke-width="0.8">
                 <polygon points="200,280 240,280 227,303 180,303" fill="#4caf50"/>
                 <polygon points="240,280 280,280 273,303 227,303" fill="#2f9a55"/>
                 <polygon points="280,280 320,280 320,303 273,303" fill="#2f9a55"/>
@@ -669,6 +692,7 @@
               <!-- haz de la cámara -->
               <polygon points="320,124 120,372 520,372" fill="url(#escena-haz)"/>
               <path d="M320 124L200 280M320 124L440 280M320 124L120 372M320 124L520 372" stroke="#ffc72c" stroke-opacity="0.4" stroke-width="1.2"/>
+              <polygon points="200,280 440,280 520,372 120,372" fill="none" stroke="#0b1a10" stroke-opacity="0.35" stroke-width="3.5"/>
               <polygon points="200,280 440,280 520,372 120,372" fill="none" stroke="#ffc72c" stroke-width="2" stroke-dasharray="7 5"/>
 
               <!-- línea de barrido que recorre la zona escaneada -->
@@ -680,44 +704,65 @@
               </g>
 
               <!-- dron -->
-              <g class="escena__dron">
-                <g stroke="#cfd8d1" stroke-width="6" stroke-linecap="round">
-                  <path d="M320 92L252 76M320 92L388 76M320 96L268 106M320 96L372 106"/>
+              <g class="escena__dron" filter="url(#dron-relieve)">
+                <!-- brazos de fibra oscura con un filo de luz arriba -->
+                <g stroke-linecap="round" fill="none">
+                  <path d="M320 92L252 76M320 92L388 76M320 96L268 106M320 96L372 106" stroke="#2c3230" stroke-width="6.5"/>
+                  <path d="M320 90.5L252 74.5M320 90.5L388 74.5M320 94.5L268 104.5M320 94.5L372 104.5" stroke="#7a8480" stroke-width="1.6" stroke-opacity="0.8"/>
                 </g>
-                <g stroke="#cfd8d1" stroke-width="2.5" stroke-linecap="round" fill="none">
+                <g stroke="#2c3230" stroke-width="3" stroke-linecap="round" fill="none">
                   <path d="M302 106L294 124M338 106L346 124M286 124H304M336 124H354"/>
                 </g>
-                <g fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.4">
+                <!-- motores -->
+                <g fill="url(#dron-motor)">
+                  <rect x="247" y="70" width="10" height="9" rx="2"/><rect x="383" y="70" width="10" height="9" rx="2"/>
+                  <rect x="263" y="100" width="10" height="9" rx="2"/><rect x="367" y="100" width="10" height="9" rx="2"/>
+                </g>
+                <!-- hélices girando: disco difuso + aspa -->
+                <g fill="url(#dron-helice)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="0.8">
                   <ellipse cx="252" cy="70" rx="30" ry="5"/><ellipse cx="388" cy="70" rx="30" ry="5"/>
                   <ellipse cx="268" cy="100" rx="30" ry="5"/><ellipse cx="372" cy="100" rx="30" ry="5"/>
                 </g>
-                <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round">
+                <g stroke="#1e2321" stroke-opacity="0.6" stroke-width="2.6" stroke-linecap="round">
                   <line class="escena__helice" x1="230" y1="70" x2="274" y2="70"/>
                   <line class="escena__helice" x1="366" y1="70" x2="410" y2="70"/>
                   <line class="escena__helice" x1="246" y1="100" x2="290" y2="100"/>
                   <line class="escena__helice" x1="350" y1="100" x2="394" y2="100"/>
                 </g>
-                <g fill="#2a332d">
-                  <rect x="247" y="70" width="10" height="9" rx="2"/><rect x="383" y="70" width="10" height="9" rx="2"/>
-                  <rect x="263" y="100" width="10" height="9" rx="2"/><rect x="367" y="100" width="10" height="9" rx="2"/>
+                <g fill="#9aa39f">
+                  <ellipse cx="252" cy="70" rx="3" ry="1.4"/><ellipse cx="388" cy="70" rx="3" ry="1.4"/>
+                  <ellipse cx="268" cy="100" rx="3" ry="1.4"/><ellipse cx="372" cy="100" rx="3" ry="1.4"/>
                 </g>
-                <rect x="290" y="80" width="60" height="26" rx="11" fill="#f4f6f2"/>
-                <rect x="302" y="85" width="36" height="6" rx="3" fill="#cfd8d1"/>
-                <circle cx="297" cy="98" r="2.2" fill="#ffc72c"/>
-                <circle cx="343" cy="98" r="2.2" fill="#4caf50"/>
-                <rect x="314" y="105" width="12" height="5" fill="#2a332d"/>
-                <circle cx="320" cy="116" r="8.5" fill="#1b211d" stroke="#cfd8d1" stroke-width="2"/>
-                <circle cx="320" cy="117" r="3.6" fill="#ffc72c"/>
+                <!-- cuerpo -->
+                <rect x="290" y="80" width="60" height="26" rx="11" fill="url(#dron-cuerpo)" stroke="#7f8a85" stroke-width="0.8"/>
+                <rect x="302" y="85" width="36" height="6" rx="3" fill="url(#dron-tapa)"/>
+                <rect x="297" y="81.5" width="40" height="2.4" rx="1.2" fill="#ffffff" opacity="0.85"/>
+                <g fill="#151918">
+                  <ellipse cx="311" cy="99" rx="3" ry="2.2"/><ellipse cx="329" cy="99" rx="3" ry="2.2"/>
+                </g>
+                <g fill="#ffffff" opacity="0.7">
+                  <circle cx="310.2" cy="98.2" r="0.8"/><circle cx="328.2" cy="98.2" r="0.8"/>
+                </g>
+                <circle cx="297" cy="98" r="3.5" fill="#ffc72c" opacity="0.35"/>
+                <circle cx="297" cy="98" r="1.8" fill="#ffd95e"/>
+                <circle cx="343" cy="98" r="3.5" fill="#4caf50" opacity="0.35"/>
+                <circle cx="343" cy="98" r="1.8" fill="#6fdc74"/>
+                <!-- cámara en el estabilizador -->
+                <rect x="314" y="105" width="12" height="5" rx="1" fill="#2c3230"/>
+                <circle cx="320" cy="116" r="8.5" fill="url(#dron-gimbal)" stroke="#5c6561" stroke-width="1.5"/>
+                <circle cx="320" cy="117" r="3.8" fill="url(#dron-lente)"/>
+                <circle cx="318.6" cy="115.6" r="1.1" fill="#ffffff" opacity="0.85"/>
               </g>
 
               <!-- números que enlazan con la lista de usos -->
-              <g font-family="Barlow, system-ui, sans-serif" font-weight="800" font-size="15" text-anchor="middle">
+              <g font-family="Barlow, system-ui, sans-serif" font-weight="800" font-size="15" text-anchor="middle" filter="url(#dron-relieve)">
                 <g><circle cx="440" cy="48" r="13" fill="#ffc72c"/><text x="440" y="53.5" fill="#11361e">1</text></g>
                 <path d="M427 52L398 64" stroke="#ffc72c" stroke-width="1.5" stroke-dasharray="3 3"/>
                 <g><circle cx="356" cy="208" r="13" fill="#ffc72c"/><text x="356" y="213.5" fill="#11361e">2</text></g>
                 <g><circle cx="490" cy="298" r="13" fill="#ffc72c"/><text x="490" y="303.5" fill="#11361e">3</text></g>
               </g>
             </svg>
+            <span class="escena__credito">Foto: <a href="https://unsplash.com/es/fotos/campo-de-hierba-verde-bajo-el-cielo-azul-y-nubes-blancas-durante-el-dia-922pFScHe7k" target="_blank" rel="noopener">Unsplash</a></span>
           </figure>
 
           <div class="escena__texto">
@@ -726,7 +771,7 @@
             <ol class="escena__usos">
               <li><span class="escena__num" aria-hidden="true">1</span><strong>Sobrevuela tus potreros</strong><p>Recorre desde el aire zonas amplias de la finca, sin pisar ni cortar el pasto.</p></li>
               <li><span class="escena__num" aria-hidden="true">2</span><strong>Fotografía la pradera</strong><p>Su cámara toma imágenes RGB (a color) del pasto: son la materia prima del análisis.</p></li>
-              <li><span class="escena__num" aria-hidden="true">3</span><strong>Ubica las diferencias por zona</strong><p>El software convierte esas imágenes en un mapa que muestra dónde el pasto tiene más o menos de cada mineral.</p></li>
+              <li><span class="escena__num" aria-hidden="true">3</span><strong>Ubica las diferencias por zona</strong><p>El software convierte esas imágenes en un mapa que muestra la calidad nutricional del pasto, analizando concentraciones de minerales esenciales.</p></li>
             </ol>
           </div>
         </div>
