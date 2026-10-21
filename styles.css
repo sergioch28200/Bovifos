@@ -374,16 +374,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .escena__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
 .escena svg { position: relative; display: block; width: 100%; height: auto; }
-.escena__credito {
-  position: absolute; left: 8px; top: 8px; padding: 2px 8px; border-radius: 999px;
-  background: rgba(11, 36, 20, 0.6); font-size: 0.6875rem;
-}
+.escena__figura { margin: 0; }
+.escena__credito { margin-top: 8px; font-size: 0.75rem; line-height: 1.4; color: rgba(255, 255, 255, 0.7); }
 .escena__credito a { color: #fff; }
 .escena__dron { animation: dron-flota 3.6s ease-in-out infinite; }
-.escena__helice { transform-box: fill-box; transform-origin: center; animation: dron-helice 0.2s linear infinite; }
 .escena__barrido { animation: dron-barre 3.2s ease-in-out infinite alternate; }
 @keyframes dron-flota { 50% { transform: translateY(-3px); } }
-@keyframes dron-helice { 50% { transform: scaleX(-1); } }
 @keyframes dron-barre { to { transform: translateY(92px); } }
 .escena__texto h3 { font-size: 1.5rem; }
 .escena__texto > p { margin-top: 10px; max-width: 48ch; color: rgba(255, 255, 255, 0.84); }
