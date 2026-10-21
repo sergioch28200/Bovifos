@@ -593,8 +593,142 @@
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>Análisis espacial de una superficie amplia de la finca</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-6 6 2 9-4s6 2 9-4"/><path d="M3 21h18"/></svg>Identificación de variaciones dentro de la pradera y entre zonas de la finca</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12l1 3-1 13H6L5 7l1-3Z"/><path d="M5 7h14"/><path d="M12 10v6M9 13h6"/></svg>Información para orientar las decisiones de suplementación mineral</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg><span>Método de análisis de imágenes RGB evaluado frente a análisis de laboratorio en un estudio colombiano<a class="dron__ref" href="#dron-fuentes" aria-label="Ver referencia 1">¹</a></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg><span>Método de análisis de imágenes RGB evaluado frente a análisis de laboratorio en un estudio colombiano</span></li>
           </ul>
+        </div>
+
+        <!-- Ilustración: el dron sobrevuela el potrero y escanea el pasto (los números enlazan con la lista) -->
+        <div class="dron__escena">
+          <figure class="escena">
+            <svg viewBox="0 0 640 400" role="img" aria-labelledby="escena-titulo escena-desc">
+              <title id="escena-titulo">Dron analizando el pasto de un potrero</title>
+              <desc id="escena-desc">Un dron sobrevuela la pradera y proyecta su cámara sobre el pasto; la zona escaneada aparece dividida en cuadros de colores, como un mapa de composición por zonas.</desc>
+              <defs>
+                <linearGradient id="escena-cielo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0a2414"/>
+                  <stop offset="1" stop-color="#1a4d2c"/>
+                </linearGradient>
+                <linearGradient id="escena-haz" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0.42"/>
+                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.06"/>
+                </linearGradient>
+                <linearGradient id="escena-brillo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0"/>
+                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.35"/>
+                </linearGradient>
+                <clipPath id="escena-huella"><polygon points="200,280 440,280 520,372 120,372"/></clipPath>
+                <clipPath id="escena-campo"><path d="M0 262C160 250 480 250 640 262V400H0Z"/></clipPath>
+              </defs>
+
+              <!-- cielo, colinas y árboles -->
+              <rect width="640" height="400" fill="url(#escena-cielo)"/>
+              <ellipse cx="320" cy="250" rx="300" ry="60" fill="#ffc72c" opacity="0.06"/>
+              <path d="M0 250C90 215 170 225 250 240S420 210 520 228 610 240 640 232V400H0Z" fill="#1d5a33"/>
+              <g fill="#14432a">
+                <circle cx="62" cy="226" r="11"/><rect x="60" y="232" width="4" height="10"/>
+                <circle cx="84" cy="230" r="8"/><rect x="82" y="234" width="3" height="8"/>
+                <circle cx="566" cy="222" r="12"/><rect x="564" y="228" width="4" height="11"/>
+                <circle cx="598" cy="230" r="8"/><rect x="596" y="234" width="3" height="8"/>
+              </g>
+
+              <!-- potrero con surcos en perspectiva -->
+              <path d="M0 262C160 250 480 250 640 262V400H0Z" fill="#24703f"/>
+              <g clip-path="url(#escena-campo)" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2">
+                <path d="M122 262L-320 400M171 262L-160 400M221 262L0 400M270 262L160 400M320 262V400M370 262L480 400M419 262L640 400M469 262L800 400M518 262L960 400"/>
+              </g>
+
+              <!-- zona escaneada: cuadros como un mapa por zonas -->
+              <polygon points="200,280 440,280 520,372 120,372" fill="#ffc72c" opacity="0.1"/>
+              <g opacity="0.78" stroke="#0c2a17" stroke-opacity="0.45" stroke-width="1">
+                <polygon points="200,280 240,280 227,303 180,303" fill="#4caf50"/>
+                <polygon points="240,280 280,280 273,303 227,303" fill="#2f9a55"/>
+                <polygon points="280,280 320,280 320,303 273,303" fill="#2f9a55"/>
+                <polygon points="320,280 360,280 367,303 320,303" fill="#9ccc3c"/>
+                <polygon points="360,280 400,280 413,303 367,303" fill="#ffc72c"/>
+                <polygon points="400,280 440,280 460,303 413,303" fill="#ffc72c"/>
+                <polygon points="180,303 227,303 213,326 160,326" fill="#2f9a55"/>
+                <polygon points="227,303 273,303 267,326 213,326" fill="#2f9a55"/>
+                <polygon points="273,303 320,303 320,326 267,326" fill="#4caf50"/>
+                <polygon points="320,303 367,303 373,326 320,326" fill="#9ccc3c"/>
+                <polygon points="367,303 413,303 427,326 373,326" fill="#9ccc3c"/>
+                <polygon points="413,303 460,303 480,326 427,326" fill="#f08a3a"/>
+                <polygon points="160,326 213,326 200,349 140,349" fill="#4caf50"/>
+                <polygon points="213,326 267,326 260,349 200,349" fill="#4caf50"/>
+                <polygon points="267,326 320,326 320,349 260,349" fill="#9ccc3c"/>
+                <polygon points="320,326 373,326 380,349 320,349" fill="#ffc72c"/>
+                <polygon points="373,326 427,326 440,349 380,349" fill="#4caf50"/>
+                <polygon points="427,326 480,326 500,349 440,349" fill="#2f9a55"/>
+                <polygon points="140,349 200,349 187,372 120,372" fill="#9ccc3c"/>
+                <polygon points="200,349 260,349 253,372 187,372" fill="#4caf50"/>
+                <polygon points="260,349 320,349 320,372 253,372" fill="#2f9a55"/>
+                <polygon points="320,349 380,349 387,372 320,372" fill="#2f9a55"/>
+                <polygon points="380,349 440,349 453,372 387,372" fill="#2f9a55"/>
+                <polygon points="440,349 500,349 520,372 453,372" fill="#4caf50"/>
+              </g>
+
+              <!-- haz de la cámara -->
+              <polygon points="320,124 120,372 520,372" fill="url(#escena-haz)"/>
+              <path d="M320 124L200 280M320 124L440 280M320 124L120 372M320 124L520 372" stroke="#ffc72c" stroke-opacity="0.4" stroke-width="1.2"/>
+              <polygon points="200,280 440,280 520,372 120,372" fill="none" stroke="#ffc72c" stroke-width="2" stroke-dasharray="7 5"/>
+
+              <!-- línea de barrido que recorre la zona escaneada -->
+              <g clip-path="url(#escena-huella)">
+                <g class="escena__barrido">
+                  <rect x="100" y="262" width="440" height="18" fill="url(#escena-brillo)"/>
+                  <rect x="100" y="278" width="440" height="3" fill="#ffc72c"/>
+                </g>
+              </g>
+
+              <!-- dron -->
+              <g class="escena__dron">
+                <g stroke="#cfd8d1" stroke-width="6" stroke-linecap="round">
+                  <path d="M320 92L252 76M320 92L388 76M320 96L268 106M320 96L372 106"/>
+                </g>
+                <g stroke="#cfd8d1" stroke-width="2.5" stroke-linecap="round" fill="none">
+                  <path d="M302 106L294 124M338 106L346 124M286 124H304M336 124H354"/>
+                </g>
+                <g fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.4">
+                  <ellipse cx="252" cy="70" rx="30" ry="5"/><ellipse cx="388" cy="70" rx="30" ry="5"/>
+                  <ellipse cx="268" cy="100" rx="30" ry="5"/><ellipse cx="372" cy="100" rx="30" ry="5"/>
+                </g>
+                <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round">
+                  <line class="escena__helice" x1="230" y1="70" x2="274" y2="70"/>
+                  <line class="escena__helice" x1="366" y1="70" x2="410" y2="70"/>
+                  <line class="escena__helice" x1="246" y1="100" x2="290" y2="100"/>
+                  <line class="escena__helice" x1="350" y1="100" x2="394" y2="100"/>
+                </g>
+                <g fill="#2a332d">
+                  <rect x="247" y="70" width="10" height="9" rx="2"/><rect x="383" y="70" width="10" height="9" rx="2"/>
+                  <rect x="263" y="100" width="10" height="9" rx="2"/><rect x="367" y="100" width="10" height="9" rx="2"/>
+                </g>
+                <rect x="290" y="80" width="60" height="26" rx="11" fill="#f4f6f2"/>
+                <rect x="302" y="85" width="36" height="6" rx="3" fill="#cfd8d1"/>
+                <circle cx="297" cy="98" r="2.2" fill="#ffc72c"/>
+                <circle cx="343" cy="98" r="2.2" fill="#4caf50"/>
+                <rect x="314" y="105" width="12" height="5" fill="#2a332d"/>
+                <circle cx="320" cy="116" r="8.5" fill="#1b211d" stroke="#cfd8d1" stroke-width="2"/>
+                <circle cx="320" cy="117" r="3.6" fill="#ffc72c"/>
+              </g>
+
+              <!-- números que enlazan con la lista de usos -->
+              <g font-family="Barlow, system-ui, sans-serif" font-weight="800" font-size="15" text-anchor="middle">
+                <g><circle cx="440" cy="48" r="13" fill="#ffc72c"/><text x="440" y="53.5" fill="#11361e">1</text></g>
+                <path d="M427 52L398 64" stroke="#ffc72c" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <g><circle cx="356" cy="208" r="13" fill="#ffc72c"/><text x="356" y="213.5" fill="#11361e">2</text></g>
+                <g><circle cx="490" cy="298" r="13" fill="#ffc72c"/><text x="490" y="303.5" fill="#11361e">3</text></g>
+              </g>
+            </svg>
+          </figure>
+
+          <div class="escena__texto">
+            <h3>¿Para qué se usa el dron?</h3>
+            <p>Una muestra de pasto tomada a mano dice cómo está un punto del potrero. El dron mira toda la pradera desde arriba, para ver cómo cambia el pasto de una zona a otra.</p>
+            <ol class="escena__usos">
+              <li><span class="escena__num" aria-hidden="true">1</span><strong>Sobrevuela tus potreros</strong><p>Recorre desde el aire zonas amplias de la finca, sin pisar ni cortar el pasto.</p></li>
+              <li><span class="escena__num" aria-hidden="true">2</span><strong>Fotografía la pradera</strong><p>Su cámara toma imágenes RGB (a color) del pasto: son la materia prima del análisis.</p></li>
+              <li><span class="escena__num" aria-hidden="true">3</span><strong>Ubica las diferencias por zona</strong><p>El software convierte esas imágenes en un mapa que muestra dónde el pasto tiene más o menos de cada mineral.</p></li>
+            </ol>
+          </div>
         </div>
 
         <!--
@@ -647,7 +781,7 @@
                   <div class="leyenda__marcas" aria-hidden="true"></div>
                 </div>
                 <ul class="leyenda__claves"></ul>
-                <p class="leyenda__criterio">Colores según la referencia general de requerimiento para bovinos en pastoreo (NRC, 2001)<a class="dron__ref" href="#dron-fuentes" aria-label="Ver referencia 1">¹</a>. Es orientativa: depende del tipo de ganado, la etapa productiva y la dieta total.</p>
+                <p class="leyenda__criterio">Colores según la referencia general de requerimiento para bovinos en pastoreo (NRC, 2001). Es orientativa: depende del tipo de ganado, la etapa productiva y la dieta total.</p>
               </figcaption>
             </figure>
 
@@ -689,15 +823,6 @@
             <svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg>Solicitar análisis de mi finca
           </a>
           <a class="btn btn--line-light" href="#contacto" data-servicio="Análisis bromatológico del pasto con dron">Usar el formulario</a>
-        </div>
-
-        <div class="dron__fuentes" id="dron-fuentes">
-          <p class="dron__fuentes-titulo">Referencias</p>
-          <ol>
-            <li>Ospina Rivera, O. F. et al. (2024). Validación de la estimación porcentual de K, P, Ca, Mg y S en la materia seca de gramíneas calculadas mediante un algoritmo de análisis de imágenes rojo, verde y azul (RGB). <i>Revista de Investigaciones Veterinarias del Perú</i>, 35(3). <a href="https://www.scielo.org.pe/scielo.php?pid=S1609-91172024000300002&amp;script=sci_arttext" target="_blank" rel="noopener">Ver artículo</a>. De aquí salen el rango observado en gramíneas tropicales y la referencia de requerimiento del NRC (2001) que usa el mapa.</li>
-            <li>Knight, C. (2020). <i>Minerals for Grazing Cattle</i>. UGA Forage Extension Team. <a href="https://site.extension.uga.edu/forageteam/2020/09/minerals-for-grazing-cattle/" target="_blank" rel="noopener">Ver publicación</a>. Explica que el contenido mineral del forraje varía mucho de un sitio a otro y que el requerimiento depende de la edad y la etapa productiva del animal.</li>
-          </ol>
-          <p>Alcance: el estudio evaluó siete gramíneas en época de lluvias, con imágenes tomadas a 20&nbsp;m de altura, y el método necesita plantas vivas. Sus resultados no demuestran por sí solos la exactitud del software en cada finca.</p>
         </div>
       </div>
     </section>

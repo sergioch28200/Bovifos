@@ -4,7 +4,9 @@
 // - Simulado: la superficie de valores del mapa. Se genera en el navegador con una semilla fija
 //   para la demostración; no es una medición de Bovifos ni de una finca.
 // - Publicado (con fuente): los rangos "observado" y "referencia" de cada mineral, tomados de
-//   Ospina Rivera et al. (2024), Rev. Inv. Vet. Perú 35(3). Ver las referencias en index.html.
+//   Ospina Rivera et al. (2024), Rev. Inv. Vet. Perú 35(3)
+//   (https://www.scielo.org.pe/scielo.php?pid=S1609-91172024000300002&script=sci_arttext).
+//   La página ya no muestra la lista de referencias; la fuente queda documentada aquí.
 //
 // CÓMO CAMBIAR LOS MINERALES O SUS ESCALAS
 // - Para quitar o agregar un mineral, editar MINERALES y su botón en .mapa__selector (index.html).
@@ -331,8 +333,8 @@ function iniciarMapa(raiz) {
       </div>
       <p class="panel__orientacion"></p>
       <dl class="panel__refs">
-        <div><dt>Rango observado en gramíneas tropicales<a class="dron__ref" href="#dron-fuentes">¹</a></dt><dd class="ref-observado"></dd></div>
-        <div><dt>Referencia de requerimiento para bovinos en pastoreo (NRC, 2001)<a class="dron__ref" href="#dron-fuentes">¹</a></dt><dd class="ref-requerimiento"></dd></div>
+        <div><dt>Rango observado en gramíneas tropicales</dt><dd class="ref-observado"></dd></div>
+        <div><dt>Referencia de requerimiento para bovinos en pastoreo (NRC, 2001)</dt><dd class="ref-requerimiento"></dd></div>
       </dl>
       <p class="panel__simulado">Valores simulados para ilustrar el reporte: no son mediciones de una finca.</p>
     </div>`;
