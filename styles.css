@@ -365,22 +365,16 @@ img { display: block; max-width: 100%; height: auto; }
   background: rgba(255, 199, 44, 0.16); stroke: var(--amarillo); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round;
 }
 
-/* Ilustración: dron escaneando el potrero + para qué se usa */
+/* Foto de la operación con dron + para qué se usa */
 .dron__escena { margin-top: 36px; display: grid; gap: 24px; align-items: center; }
 .escena {
-  position: relative; margin: 0; overflow: hidden; aspect-ratio: 16 / 10;
-  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 16px; background: #3f7a3a;
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 16px; background: #3f6b34;
   box-shadow: 0 24px 48px -32px rgba(0, 0, 0, 0.6);
 }
-.escena__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
-.escena svg { position: relative; display: block; width: 100%; height: auto; }
 .escena__figura { margin: 0; }
 .escena__credito { margin-top: 8px; font-size: 0.75rem; line-height: 1.4; color: rgba(255, 255, 255, 0.7); }
 .escena__credito a { color: #fff; }
-.escena__dron { animation: dron-flota 3.6s ease-in-out infinite; }
-.escena__barrido { animation: dron-barre 3.2s ease-in-out infinite alternate; }
-@keyframes dron-flota { 50% { transform: translateY(-3px); } }
-@keyframes dron-barre { to { transform: translateY(92px); } }
 .escena__texto h3 { font-size: 1.5rem; }
 .escena__texto > p { margin-top: 10px; max-width: 48ch; color: rgba(255, 255, 255, 0.84); }
 .escena__usos { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 14px; }

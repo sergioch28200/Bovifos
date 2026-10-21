@@ -18,10 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="preconnect" href="https://upload.wikimedia.org">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v=: cambiarlo en cada publicación de styles.css o de los .js para que el navegador no use la copia vieja (GitHub Pages la guarda 10 min) -->
-  <link rel="stylesheet" href="styles.css?v=20261021">
+  <link rel="stylesheet" href="styles.css?v=20261021b">
   <!-- Datos de la empresa para buscadores y mapas -->
   <script type="application/ld+json">
   {
@@ -599,100 +598,16 @@
           </ul>
         </div>
 
-        <!-- Ilustración: el dron sobrevuela el potrero y escanea el pasto (los números enlazan con la lista) -->
+        <!-- Foto documental de la operación: dron de captura visual sobre un potrero (Pexels, guardada en assets/img/dron) -->
         <div class="dron__escena">
           <figure class="escena__figura">
-          <div class="escena">
-            <!-- Fondo: foto real de un potrero (Unsplash), recortada por abajo para dejar el horizonte a 3/5 de la altura -->
-            <img class="escena__foto"
-              src="https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=1280&h=800&q=70"
-              srcset="https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=800&h=500&q=70 800w,
-                      https://images.unsplash.com/photo-1597801038590-9e3a24bcd6b7?auto=format&fit=crop&crop=bottom&w=1280&h=800&q=70 1280w"
-              sizes="(min-width: 960px) 55vw, 100vw" width="1280" height="800" loading="lazy" decoding="async" alt="">
-            <svg viewBox="0 0 640 400" role="img" aria-labelledby="escena-titulo escena-desc">
-              <title id="escena-titulo">Dron analizando el pasto de un potrero</title>
-              <desc id="escena-desc">Un dron sobrevuela un potrero bajo el cielo y proyecta su cámara sobre el pasto; la zona escaneada aparece dividida en cuadros de colores, como un mapa de composición por zonas.</desc>
-              <defs>
-                <linearGradient id="escena-haz" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0.45"/>
-                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.08"/>
-                </linearGradient>
-                <linearGradient id="escena-brillo" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ffc72c" stop-opacity="0"/>
-                  <stop offset="1" stop-color="#ffc72c" stop-opacity="0.4"/>
-                </linearGradient>
-                <clipPath id="escena-huella"><polygon points="200,280 440,280 520,372 120,372"/></clipPath>
-                <filter id="dron-relieve" x="-20%" y="-30%" width="140%" height="170%">
-                  <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0b1a10" flood-opacity="0.4"/>
-                </filter>
-                <filter id="escena-difuso" x="-50%" y="-200%" width="200%" height="500%">
-                  <feGaussianBlur stdDeviation="4"/>
-                </filter>
-              </defs>
-
-              <!-- sombra del dron sobre el pasto -->
-              <ellipse cx="334" cy="332" rx="44" ry="6" fill="#0a1a0e" opacity="0.35" filter="url(#escena-difuso)"/>
-
-              <!-- zona escaneada: cuadros como un mapa por zonas -->
-              <polygon points="200,280 440,280 520,372 120,372" fill="#ffc72c" opacity="0.1"/>
-              <g opacity="0.62" stroke="#ffffff" stroke-opacity="0.45" stroke-width="0.8">
-                <polygon points="200,280 240,280 227,303 180,303" fill="#4caf50"/>
-                <polygon points="240,280 280,280 273,303 227,303" fill="#2f9a55"/>
-                <polygon points="280,280 320,280 320,303 273,303" fill="#2f9a55"/>
-                <polygon points="320,280 360,280 367,303 320,303" fill="#9ccc3c"/>
-                <polygon points="360,280 400,280 413,303 367,303" fill="#ffc72c"/>
-                <polygon points="400,280 440,280 460,303 413,303" fill="#ffc72c"/>
-                <polygon points="180,303 227,303 213,326 160,326" fill="#2f9a55"/>
-                <polygon points="227,303 273,303 267,326 213,326" fill="#2f9a55"/>
-                <polygon points="273,303 320,303 320,326 267,326" fill="#4caf50"/>
-                <polygon points="320,303 367,303 373,326 320,326" fill="#9ccc3c"/>
-                <polygon points="367,303 413,303 427,326 373,326" fill="#9ccc3c"/>
-                <polygon points="413,303 460,303 480,326 427,326" fill="#f08a3a"/>
-                <polygon points="160,326 213,326 200,349 140,349" fill="#4caf50"/>
-                <polygon points="213,326 267,326 260,349 200,349" fill="#4caf50"/>
-                <polygon points="267,326 320,326 320,349 260,349" fill="#9ccc3c"/>
-                <polygon points="320,326 373,326 380,349 320,349" fill="#ffc72c"/>
-                <polygon points="373,326 427,326 440,349 380,349" fill="#4caf50"/>
-                <polygon points="427,326 480,326 500,349 440,349" fill="#2f9a55"/>
-                <polygon points="140,349 200,349 187,372 120,372" fill="#9ccc3c"/>
-                <polygon points="200,349 260,349 253,372 187,372" fill="#4caf50"/>
-                <polygon points="260,349 320,349 320,372 253,372" fill="#2f9a55"/>
-                <polygon points="320,349 380,349 387,372 320,372" fill="#2f9a55"/>
-                <polygon points="380,349 440,349 453,372 387,372" fill="#2f9a55"/>
-                <polygon points="440,349 500,349 520,372 453,372" fill="#4caf50"/>
-              </g>
-
-              <!-- haz de la cámara -->
-              <polygon points="320,124 120,372 520,372" fill="url(#escena-haz)"/>
-              <path d="M320 124L200 280M320 124L440 280M320 124L120 372M320 124L520 372" stroke="#ffc72c" stroke-opacity="0.4" stroke-width="1.2"/>
-              <polygon points="200,280 440,280 520,372 120,372" fill="none" stroke="#0b1a10" stroke-opacity="0.35" stroke-width="3.5"/>
-              <polygon points="200,280 440,280 520,372 120,372" fill="none" stroke="#ffc72c" stroke-width="2" stroke-dasharray="7 5"/>
-
-              <!-- línea de barrido que recorre la zona escaneada -->
-              <g clip-path="url(#escena-huella)">
-                <g class="escena__barrido">
-                  <rect x="100" y="262" width="440" height="18" fill="url(#escena-brillo)"/>
-                  <rect x="100" y="278" width="440" height="3" fill="#ffc72c"/>
-                </g>
-              </g>
-
-              <!-- dron -->
-              <!-- dron: foto real con fondo transparente; la lente de la cámara queda en (320, 117), vértice del haz -->
-              <g class="escena__dron" filter="url(#dron-relieve)">
-                <image href="https://upload.wikimedia.org/wikipedia/commons/3/36/DJI-Phantom2-Vision-plus.png"
-                  x="222.5" y="-19.3" width="214" height="214"/>
-              </g>
-
-              <!-- números que enlazan con la lista de usos -->
-              <g font-family="Barlow, system-ui, sans-serif" font-weight="800" font-size="15" text-anchor="middle" filter="url(#dron-relieve)">
-                <g><circle cx="476" cy="44" r="13" fill="#ffc72c"/><text x="476" y="49.5" fill="#11361e">1</text></g>
-                <path d="M463 50L432 62" stroke="#ffc72c" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <g><circle cx="356" cy="208" r="13" fill="#ffc72c"/><text x="356" y="213.5" fill="#11361e">2</text></g>
-                <g><circle cx="490" cy="298" r="13" fill="#ffc72c"/><text x="490" y="303.5" fill="#11361e">3</text></g>
-              </g>
-            </svg>
-          </div>
-            <figcaption class="escena__credito">Foto del potrero: <a href="https://unsplash.com/es/fotos/campo-de-hierba-verde-bajo-el-cielo-azul-y-nubes-blancas-durante-el-dia-922pFScHe7k" target="_blank" rel="noopener">Unsplash</a> · Foto del dron: <a href="https://commons.wikimedia.org/wiki/File:DJI-Phantom2-Vision-plus.png" target="_blank" rel="noopener">DJI Technologies</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
+            <img class="escena"
+              src="assets/img/dron/bovifos-dron-potrero-1280.jpg"
+              srcset="assets/img/dron/bovifos-dron-potrero-800.jpg 800w,
+                      assets/img/dron/bovifos-dron-potrero-1280.jpg 1280w"
+              sizes="(min-width: 960px) 55vw, 100vw" width="1280" height="720" loading="lazy" decoding="async"
+              alt="Dron compacto de cuatro hélices con su cámara al frente, en vuelo a baja altura sobre un potrero de pasto alto, con árboles al fondo en un día despejado">
+            <figcaption class="escena__credito">Foto: <a href="https://www.pexels.com/photo/close-up-shot-of-a-flying-drone-camera-9404255/" target="_blank" rel="noopener">Altaf Shah / Pexels</a></figcaption>
           </figure>
 
           <div class="escena__texto">
