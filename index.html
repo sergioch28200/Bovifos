@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://images.unsplash.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v=: cambiarlo en cada publicación de styles.css o de los .js para que el navegador no use la copia vieja (GitHub Pages la guarda 10 min) -->
-  <link rel="stylesheet" href="styles.css?v=20261021b">
+  <link rel="stylesheet" href="styles.css?v=20261023">
   <!-- Datos de la empresa para buscadores y mapas -->
   <script type="application/ld+json">
   {
@@ -84,116 +84,46 @@
   </header>
 
   <main id="contenido">
-    <!-- Hero -->
+    <!-- Hero: foto de campo a sangre + los 5 bultos reales como selector de etapa -->
     <section class="hero" id="inicio">
+      <img class="hero__bg"
+        src="https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=1800&h=1000&q=70"
+        srcset="https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=900&h=1100&q=70 900w,
+                https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=1800&h=1000&q=70 1800w"
+        sizes="100vw" width="1800" height="1000" fetchpriority="high" alt="">
+      <p class="credit">Foto: <a href="https://unsplash.com/es/fotos/ganado-blanco-y-gris-en-campo-verde-go_kbwiUFv4" target="_blank" rel="noopener">Unsplash</a></p>
       <div class="wrap hero__inner">
         <div class="hero__text">
+          <p class="hero__eyebrow">Registro ICA · Bulto de 40&nbsp;kg · Envíos a fincas</p>
           <h1>Sales mineralizadas para tu ganado, listas para pedir</h1>
           <p class="hero__lead">Elige la fórmula según la etapa, dinos cuántos bultos de 40&nbsp;kg necesitas y te respondemos por WhatsApp con precio y disponibilidad.</p>
           <div class="hero__ctas">
             <a class="btn btn--yellow" href="#catalogo">Ver catálogo</a>
-            <a class="btn btn--wa js-wa" href="https://wa.me/573123458202"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
-          </div>
-          <div class="quick">
-            <p class="quick__label">¿Qué etapa tienes?</p>
-            <ul class="quick__list">
-              <li><a href="#catalogo" data-go="ceba">Ceba</a></li>
-              <li><a href="#catalogo" data-go="levante">Levante</a></li>
-              <li><a href="#catalogo" data-go="cria">Cría y doble propósito</a></li>
-              <li><a href="#catalogo" data-go="leche">Lechería</a></li>
-            </ul>
+            <a class="btn btn--line-light js-wa" href="https://wa.me/573123458202"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
           </div>
         </div>
-        <!--
-          Carrusel de fotos: cambia solo cada 6 s (script.js). Para añadir una foto,
-          copiar un <figure class="slide"> y agregar su punto en .slider__dots.
-        -->
-        <div class="hero__media slider" role="region" aria-roledescription="carrusel" aria-label="Fotos de ganado y análisis con dron">
-          <div class="slider__track">
-            <figure class="slide is-active" aria-roledescription="diapositiva" aria-label="1 de 5">
-              <img
-                src="https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=1100&h=900&q=70"
-                srcset="https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=700&h=520&q=70 700w,
-                        https://images.unsplash.com/photo-1555070319-a51174cb9529?auto=format&fit=crop&w=1100&h=900&q=70 1100w"
-                sizes="(min-width: 960px) 46vw, 100vw" width="1100" height="900" fetchpriority="high"
-                alt="Lote de ganado cebú blanco en un potrero verde">
-              <figcaption class="credit">Foto: <a href="https://unsplash.com/es/fotos/ganado-blanco-y-gris-en-campo-verde-go_kbwiUFv4" target="_blank" rel="noopener">Unsplash</a></figcaption>
-            </figure>
-            <figure class="slide" aria-roledescription="diapositiva" aria-label="2 de 5">
-              <img
-                src="https://images.unsplash.com/photo-1629988804484-065b4a5470a2?auto=format&fit=crop&w=1100&h=900&q=70"
-                srcset="https://images.unsplash.com/photo-1629988804484-065b4a5470a2?auto=format&fit=crop&w=700&h=520&q=70 700w,
-                        https://images.unsplash.com/photo-1629988804484-065b4a5470a2?auto=format&fit=crop&w=1100&h=900&q=70 1100w"
-                sizes="(min-width: 960px) 46vw, 100vw" width="1100" height="900" loading="lazy" decoding="async"
-                alt="Dron sobrevolando un potrero verde">
-              <figcaption class="credit">Foto: <a href="https://unsplash.com/es/fotos/dron-blanco-y-negro-volando-sobre-un-campo-de-hierba-verde-durante-el-dia-1tQJKh_1vNo" target="_blank" rel="noopener">Unsplash</a></figcaption>
-            </figure>
-            <figure class="slide" aria-roledescription="diapositiva" aria-label="3 de 5">
-              <img
-                src="https://images.unsplash.com/photo-1572171945655-5f9393600cb3?auto=format&fit=crop&w=1100&h=900&q=70"
-                srcset="https://images.unsplash.com/photo-1572171945655-5f9393600cb3?auto=format&fit=crop&w=700&h=520&q=70 700w,
-                        https://images.unsplash.com/photo-1572171945655-5f9393600cb3?auto=format&fit=crop&w=1100&h=900&q=70 1100w"
-                sizes="(min-width: 960px) 46vw, 100vw" width="1100" height="900" loading="lazy" decoding="async"
-                alt="Vista aérea tomada con dron de ganado pastando en un potrero">
-              <figcaption class="credit">Foto: <a href="https://unsplash.com/es/fotos/vista-aerea-de-animales-en-un-campo-cubierto-de-hierba-iZo0ZLGDhq0" target="_blank" rel="noopener">Unsplash</a></figcaption>
-            </figure>
-            <figure class="slide" aria-roledescription="diapositiva" aria-label="4 de 5">
-              <img
-                src="https://images.unsplash.com/photo-1788157980088-f37fe2f4714f?auto=format&fit=crop&w=1100&h=900&q=70"
-                srcset="https://images.unsplash.com/photo-1788157980088-f37fe2f4714f?auto=format&fit=crop&w=700&h=520&q=70 700w,
-                        https://images.unsplash.com/photo-1788157980088-f37fe2f4714f?auto=format&fit=crop&w=1100&h=900&q=70 1100w"
-                sizes="(min-width: 960px) 46vw, 100vw" width="1100" height="900" loading="lazy" decoding="async"
-                alt="Ganado brahman blanco en un potrero verde">
-              <figcaption class="credit">Foto: <a href="https://unsplash.com/es/fotos/ganado-brahman-blanco-en-un-campo-verde-My7plmbyKgs" target="_blank" rel="noopener">Unsplash</a></figcaption>
-            </figure>
-            <figure class="slide" aria-roledescription="diapositiva" aria-label="5 de 5">
-              <img
-                src="https://images.unsplash.com/photo-1767103843277-453cdfee20cc?auto=format&fit=crop&w=1100&h=900&q=70"
-                srcset="https://images.unsplash.com/photo-1767103843277-453cdfee20cc?auto=format&fit=crop&w=700&h=520&q=70 700w,
-                        https://images.unsplash.com/photo-1767103843277-453cdfee20cc?auto=format&fit=crop&w=1100&h=900&q=70 1100w"
-                sizes="(min-width: 960px) 46vw, 100vw" width="1100" height="900" loading="lazy" decoding="async"
-                alt="Vaca cebú en un potrero de ladera">
-              <figcaption class="credit">Foto: <a href="https://unsplash.com/es/fotos/una-vaca-de-color-claro-se-encuentra-en-un-prado-verde-F8H6Z1984lI" target="_blank" rel="noopener">Unsplash</a></figcaption>
-            </figure>
-          </div>
-          <div class="slider__ctrl">
-            <button type="button" class="slider__pause" aria-label="Pausar fotos">
-              <svg class="slider__ico-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z"/></svg>
-              <svg class="slider__ico-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg>
-            </button>
-            <div class="slider__dots">
-              <button type="button" class="slider__dot" aria-label="Ver foto 1" aria-current="true"></button>
-              <button type="button" class="slider__dot" aria-label="Ver foto 2" aria-current="false"></button>
-              <button type="button" class="slider__dot" aria-label="Ver foto 3" aria-current="false"></button>
-              <button type="button" class="slider__dot" aria-label="Ver foto 4" aria-current="false"></button>
-              <button type="button" class="slider__dot" aria-label="Ver foto 5" aria-current="false"></button>
-            </div>
-          </div>
-          <p class="hero__badge"><strong>5 fórmulas</strong> en bulto de 40 kg</p>
-        </div>
+        <nav class="estante" aria-labelledby="estante-titulo">
+          <p class="estante__titulo" id="estante-titulo">¿Qué etapa tienes? <span>Toca tu fórmula</span></p>
+          <ul class="estante__lista">
+            <li><a href="#catalogo" data-go="ceba"><img src="assets/img/productos/web/bovifos-sal-sabanera-frontal-320.webp" srcset="assets/img/productos/web/bovifos-sal-sabanera-frontal-160.webp 160w, assets/img/productos/web/bovifos-sal-sabanera-frontal-320.webp 320w" sizes="(min-width: 960px) 150px, 20vw" width="320" height="400" alt=""><b>Sabanera</b><span>Ceba y preparto</span></a></li>
+            <li><a href="#catalogo" data-go="ceba"><img src="assets/img/productos/web/bovifos-sal-4-ceba-frontal-320.webp" srcset="assets/img/productos/web/bovifos-sal-4-ceba-frontal-160.webp 160w, assets/img/productos/web/bovifos-sal-4-ceba-frontal-320.webp 320w" sizes="(min-width: 960px) 150px, 20vw" width="320" height="400" alt=""><b>4%</b><span>Ceba</span></a></li>
+            <li><a href="#catalogo" data-go="levante"><img src="assets/img/productos/web/bovifos-sal-6-levante-frontal-320.webp" srcset="assets/img/productos/web/bovifos-sal-6-levante-frontal-160.webp 160w, assets/img/productos/web/bovifos-sal-6-levante-frontal-320.webp 320w" sizes="(min-width: 960px) 150px, 20vw" width="320" height="400" alt=""><b>6%</b><span>Levante</span></a></li>
+            <li><a href="#catalogo" data-go="cria"><img src="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-320.webp" srcset="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-160.webp 160w, assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-320.webp 320w" sizes="(min-width: 960px) 150px, 20vw" width="320" height="400" alt=""><b>8%</b><span>Cría</span></a></li>
+            <li><a href="#catalogo" data-go="leche"><img src="assets/img/productos/web/bovifos-sal-10-leche-frontal-320.webp" srcset="assets/img/productos/web/bovifos-sal-10-leche-frontal-160.webp 160w, assets/img/productos/web/bovifos-sal-10-leche-frontal-320.webp 320w" sizes="(min-width: 960px) 150px, 20vw" width="320" height="400" alt=""><b>10%</b><span>Lechería</span></a></li>
+          </ul>
+          <p class="estante__nota">El número de cada fórmula es su porcentaje de fósforo.</p>
+        </nav>
       </div>
     </section>
 
-    <!-- Beneficios del servicio -->
-    <section class="perks" aria-label="Por qué pedir con Bovifos">
-      <ul class="wrap perks__list">
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>
-          <div><h2>Una fórmula por etapa</h2><p>De cría a lechería, sin adivinar.</p></div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12l1 3-1 13H6L5 7l1-3Z"/><path d="M5 7h14"/><path d="M9 12h6"/></svg>
-          <div><h2>Bulto de 40 kg</h2><p>Una sola presentación, fácil de calcular.</p></div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 10h8"/></svg>
-          <div><h2>Asesoría para elegir</h2><p>Te ayudamos según tus animales.</p></div>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v10H2zM14 10h4l4 3v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-          <div><h2>Envíos</h2><p>A fincas y distribuidores.</p></div>
-        </li>
-      </ul>
+    <!-- Datos verificables: solo cifras que salen de las fichas técnicas -->
+    <section class="datos" aria-label="Bovifos en cifras">
+      <dl class="wrap datos__lista">
+        <div><dt>5</dt><dd>fórmulas, una por etapa: de cría a lechería</dd></div>
+        <div><dt>1–10&nbsp;%</dt><dd>de fósforo según la fórmula</dd></div>
+        <div><dt>40&nbsp;kg</dt><dd>una sola presentación, fácil de calcular</dd></div>
+        <div><dt>ICA</dt><dd>registro y ficha técnica en cada referencia</dd></div>
+      </dl>
     </section>
 
     <!-- Catálogo -->
@@ -238,7 +168,7 @@
         -->
         <ul class="cards">
           <li class="card" data-etapa="ceba leche">
-            <div class="card__img">
+            <div class="card__img" data-p="1">
               <img src="assets/img/productos/web/bovifos-sal-sabanera-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-sabanera-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-sabanera-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
@@ -305,7 +235,7 @@
           </li>
 
           <li class="card" data-etapa="ceba">
-            <div class="card__img">
+            <div class="card__img" data-p="4">
               <img src="assets/img/productos/web/bovifos-sal-4-ceba-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-4-ceba-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-4-ceba-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
@@ -371,7 +301,7 @@
           </li>
 
           <li class="card" data-etapa="levante">
-            <div class="card__img">
+            <div class="card__img" data-p="6">
               <img src="assets/img/productos/web/bovifos-sal-6-levante-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-6-levante-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-6-levante-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
@@ -437,7 +367,7 @@
           </li>
 
           <li class="card" data-etapa="cria">
-            <div class="card__img">
+            <div class="card__img" data-p="8">
               <img src="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-8-cria-leche-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
@@ -504,7 +434,7 @@
           </li>
 
           <li class="card" data-etapa="leche">
-            <div class="card__img">
+            <div class="card__img" data-p="10">
               <img src="assets/img/productos/web/bovifos-sal-10-leche-frontal-480.jpg"
                 srcset="assets/img/productos/web/bovifos-sal-10-leche-frontal-480.jpg 480w, assets/img/productos/web/bovifos-sal-10-leche-frontal-720.jpg 720w"
                 sizes="(min-width: 960px) 372px, (min-width: 640px) 46vw, 92vw" width="480" height="600" loading="lazy" decoding="async"
@@ -870,7 +800,7 @@
     <svg width="30" height="30" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 
-  <script src="script.js?v=20261021"></script>
+  <script src="script.js?v=20261023"></script>
   <script src="mapa-pastos.js?v=20261021"></script>
 </body>
 </html>
